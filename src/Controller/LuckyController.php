@@ -16,7 +16,7 @@ class LuckyController
 {
     public function number()
     {
-        $number = random_int(0, 100);
+        $number = "In the beginning God created the heaven and the earth. (Genesis 1:1)";
 
         return new Response(
             '<html><body>Lucky number: '.$number.'</body></html>'
