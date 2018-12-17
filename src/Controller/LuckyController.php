@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: 14400
@@ -6,7 +7,6 @@
  * Time: 6:13 AM
  */
 
-<?php
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
