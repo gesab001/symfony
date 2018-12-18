@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LuckyController
 {
-    public function number()
+    public function index()
     {
         $number = "In the beginning God created the heaven and the earth. (Genesis 1:1)";
 
