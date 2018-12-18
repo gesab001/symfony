@@ -11,17 +11,19 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController
 {
-    public function index()
+     /**
+      * @Route("/lucky/number")
+      */
+    public function number()
     {
-        $number = "In the beginning God created the heaven and the earth. (Genesis 1:1)";
+        $number = random_int(0, 100);
 
         return new Response(
             '<html><body>Lucky number: '.$number.'</body></html>'
         );
     }
 }
-
-?>
