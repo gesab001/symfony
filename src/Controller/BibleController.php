@@ -13,14 +13,28 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Genesis;
-use App\Entity\Books;
+use App\Entity\Kjv;
 
 class BibleController extends AbstractController
 {
+//    /**
+//     * @Route("/")
+//     */
+//    public function homepage()
+//    {
+//        return new Response('in the beginning God created the heaven and the earth');
+//    }
+
+    /**
+     * @Route("/bible")
+     */
+    public function bible()
+    {
+        return new Response('in the beginning God created the heaven and the earth');
+    }
 
 function getCurrentID(){
-   $totalVerses = $this->setTotalVerses();
+   $totalVerses = 31102;
    date_default_timezone_set("Pacific/Auckland");
    $originalDate = strtotime("2018-06-23 14:45:00");
    $dateToday = date("Y-m-d H:i");
@@ -33,42 +47,28 @@ function getCurrentID(){
    return $id;
 }
 
-function setTotalVerses(){
-        $id = 1;
-        $total = $this->getDoctrine()
-        ->getRepository(Books::class)
-        ->find($id);
-
-        if (!$total) {
-           throw $this->createNotFoundException(
-              'No book found for id '.$id
-        );
-    }
-        $totalVerses = $total->getVerses();
-        return $totalVerses;
-}
      /**
-      * @Route("/")
+      * @Route("/", name="app_homepage")
       */
 
     public function index()
     {
         $id = $this->getCurrentID();
-        $genesis = $this->getDoctrine()
-        ->getRepository(Genesis::class)
+        $kjv = $this->getDoctrine()
+        ->getRepository(Kjv::class)
         ->find($id);
 
-        if (!$genesis) {
+        if (!$kjv) {
            throw $this->createNotFoundException(
-              'No verse found for id '.$id
+              'No verse Found for id '.$id
         );
     }
-        $word = $genesis->getWord();
-        $book = $genesis->getBook();
-        $chapter = $genesis->getChapter();
-        $verse = $genesis->getVerse();
+        $word = $kjv->getWord();
+        $book = $kjv->getBook();
+        $chapter = $kjv->getChapter();
+        $verse = $kjv->getVerse();
         $reference = "(" . $book . " " . $chapter . ":" . $verse . ")";
-        return $this->render('word.html.twig', [
+        return $this->render('bible/word.html.twig', [
             'word' => $word,
             'reference' => $reference,
         ]);

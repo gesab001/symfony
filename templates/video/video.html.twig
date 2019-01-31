@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+
+        <ol>
+            {% for title in titles %}
+                <li><a href="#">{{ title }}</a></li>
+            {%  endfor %}
+        </ol>
+
+        {% endblock %}
+
+
+

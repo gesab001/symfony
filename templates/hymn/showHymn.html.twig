@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+                <h1>{{ number }} {{ title }}</h1>
+                {% set lines = verses |split('Verse') %}
+                {% for line in lines %}
+                        <p>{{ line }}</p>
+                {% endfor %}
+
+        {% endblock %}
+
+
+

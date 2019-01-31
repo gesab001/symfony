@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('css/bible.css') }}">
+
+{% endblock %}
+
+        {% block body %}
+
+        <div class="bibleverse-container">
+            <p class="bibleverse"> {{ word }} {{ reference}}</p>
+        </div>
+
+        {% endblock %}
+
+       
+
+
+        {% block javascripts %}
+            {{ parent() }}
+
+            {{ encore_entry_script_tags('app') }}
+
+            <!-- Renders app.js & a webpack runtime.js file
+                <script src="/build/runtime.js"></script>
+                <script src="/build/app.js"></script> -->
+        {% endblock %}

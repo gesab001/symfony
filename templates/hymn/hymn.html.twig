@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+
+        <ol>
+            {% for hymn in hymns %}
+                <li><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.TITLE }}</a></li>
+            {%  endfor %}
+        </ol>
+
+        {% endblock %}
+
+
+
+
+
+{% block javascripts %}
+        {{ parent() }}
+        <script src="{{  asset('js/hymn_show.js') }}"></script>
+{%  endblock %}
