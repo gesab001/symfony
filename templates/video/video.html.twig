@@ -4,8 +4,8 @@
         {% block body %}
 
         <ol>
-            {% for title in titles %}
-                <li><a href="#">{{ title }}</a></li>
+            {% for video in videos %}
+                <li><a href="#">{{ video.title }}</a></li>
             {%  endfor %}
         </ol>
 

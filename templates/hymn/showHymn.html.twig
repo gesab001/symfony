@@ -5,6 +5,7 @@
                 <h1>{{ number }} {{ title }}</h1>
                 {% set lines = verses |split('Verse') %}
                 {% for line in lines %}
+                        {% if  line%}
                         <p>{{ line }}</p>
                 {% endfor %}
 

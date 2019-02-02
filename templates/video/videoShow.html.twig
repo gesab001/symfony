@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+
+                <h4>{{ video.title }}</h4>
+                <h5>Speaker: {{ video.preacher }}</h5>
+                <p>Summary: {{ video.description }}</p>
+                <video width="100%" controls>
+                        <source src="{{ video.url }}{{ video.filename }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                </video>
+
+
+
+        {% endblock %}
+
+
+
