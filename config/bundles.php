@@ -18,4 +18,5 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Symfony\Cmf\Bundle\MenuBundle\CmfMenuBundle::class => ['all' => true],
     Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle::class => ['all' => true],
+    Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
 ];

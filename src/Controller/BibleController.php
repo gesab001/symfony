@@ -12,10 +12,15 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+//use Symfony\Component\HttpKernel\Tests\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
+use Symfony\Component\HttpFoundation\Request;
 
-class BibleController extends AbstractController
+
+class BibleController extends Controller
 {
 //    /**
 //     * @Route("/")
@@ -71,6 +76,55 @@ function getCurrentID(){
         return $this->render('bible/word.html.twig', [
             'word' => $word,
             'reference' => $reference,
+        ]);
+    }
+
+    /**
+     * @Route("/kjv/{keyword}", name="search_kjv")
+     */
+    public function searchBible(Request $request, $keyword)
+    {
+//        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
+//        if (!$titles) {
+//            throw $this->createNotFoundException(
+//                'No titles found'
+//            );
+//        }
+//
+//
+//        return $this->render('hymn/hymn.html.twig',
+//            array('hymns' => $titles)
+//        );
+
+        // Retrieve the entity manager of Doctrine
+        $em = $this->getDoctrine()->getManager();
+
+        // Get some repository of data, in our case we have an Appointments entity
+        $hymnsRepository = $em->getRepository(Kjv::class);
+
+        // Find all the data on the Appointments table, filter your query as you need
+        $allHymnsQuery = $hymnsRepository->createQueryBuilder('w')
+            ->where('w.word LIKE :word')
+            ->setParameter('word', '%'.$keyword.'%')
+            ->getQuery();
+
+        /* @var $paginator \Knp\Component\Pager\Paginator */
+        $paginator  = $this->get('knp_paginator');
+
+        // Paginate the results of the query
+        $results = $paginator->paginate(
+        // Doctrine Query, not results
+            $allHymnsQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            100
+        );
+
+
+        // Render the twig view
+        return $this->render('bible/searchResultsKjv.html.twig', [
+            'results' => $results
         ]);
     }
 }

@@ -15,11 +15,12 @@ use PhpParser\Node\Expr\Array_;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
 use Symfony\Component\HttpFoundation\Request;
 
-class HymnController extends AbstractController
+class HymnController extends Controller
 {
 //    /**
 //     * @Route("/")
@@ -32,18 +33,50 @@ class HymnController extends AbstractController
     /**
      * @Route("/hymn", name="app_hymn")
      */
-    public function getTitles()
+    public function getTitles(Request $request)
     {
-        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
-        if (!$titles) {
-            throw $this->createNotFoundException(
-                'No titles found'
-            );
-        }
+//        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
+//        if (!$titles) {
+//            throw $this->createNotFoundException(
+//                'No titles found'
+//            );
+//        }
+//
+//
+//        return $this->render('hymn/hymn.html.twig',
+//            array('hymns' => $titles)
+//        );
 
-        return $this->render('hymn/hymn.html.twig',
-            array('hymns' => $titles)
+        // Retrieve the entity manager of Doctrine
+        $em = $this->getDoctrine()->getManager();
+
+        // Get some repository of data, in our case we have an Appointments entity
+        $hymnsRepository = $em->getRepository(Hymns::class);
+
+        // Find all the data on the Appointments table, filter your query as you need
+        $allHymnsQuery = $hymnsRepository->createQueryBuilder('id')
+//            ->where('p.status != :status')
+//            ->setParameter('status', 'canceled')
+            ->getQuery();
+
+        /* @var $paginator \Knp\Component\Pager\Paginator */
+        $paginator  = $this->get('knp_paginator');
+
+        // Paginate the results of the query
+        $titles = $paginator->paginate(
+        // Doctrine Query, not results
+            $allHymnsQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            100
         );
+
+
+        // Render the twig view
+        return $this->render('hymn/hymn.html.twig', [
+            'hymns' => $titles
+        ]);
     }
 
 

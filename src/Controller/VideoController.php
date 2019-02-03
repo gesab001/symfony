@@ -66,9 +66,9 @@ class VideoController extends AbstractController
 
 
     /**
-     * @Route("/video/{id}", name="video_show")
+     * @Route("/video/{id}/{title}/{preacher}", name="show_video", methods={"GET"})
      */
-    public function show($id)
+    public function show($id, $title, $preacher)
     {
         $video = $this->getDoctrine()
             ->getRepository(Videos::class)

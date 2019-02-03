@@ -3,11 +3,11 @@
 
         {% block body %}
                 <div class="navigation">
-                        {{ knp_pagination_render(hymns) }}
+                        {{ knp_pagination_render(results) }}
                 </div>
 
-            {% for hymn in hymns %}
-                <li><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}</a></li>
+            {% for result in results %}
+                <li>{{ result.word }}</li>
             {%  endfor %}
 
 
