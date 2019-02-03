@@ -80,9 +80,9 @@ function getCurrentID(){
     }
 
     /**
-     * @Route("/kjv/{keyword}", name="search_kjv")
+     * @Route("/kjv/search_kjv", name="search_kjv")
      */
-    public function searchBible(Request $request, $keyword)
+    public function searchBible(Request $request)
     {
 //        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
 //        if (!$titles) {
@@ -95,7 +95,7 @@ function getCurrentID(){
 //        return $this->render('hymn/hymn.html.twig',
 //            array('hymns' => $titles)
 //        );
-
+        $keyword = $request->get("keyword");
         // Retrieve the entity manager of Doctrine
         $em = $this->getDoctrine()->getManager();
 

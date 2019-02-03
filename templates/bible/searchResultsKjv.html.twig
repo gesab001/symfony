@@ -2,13 +2,19 @@
 
 
         {% block body %}
+            <p>Results: {{results|length}}</p>
                 <div class="navigation">
                         {{ knp_pagination_render(results) }}
                 </div>
 
+
+            <ol>
             {% for result in results %}
-                <li>{{ result.word }}</li>
+
+                <li>{{ result.word }} ({{ result.book }} {{ result.chapter }}:{{ result.verse }})</li>
+
             {%  endfor %}
+            </ol>
 
 
 
