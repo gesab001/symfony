@@ -3,11 +3,78 @@
 
         {% block body %}
 
-        <ol>
-            {% for video in videos %}
-                <li><a href="video/{{ video.id }}/{{ video.title }}/{{video.preacher}}">{{ video.title }}</a></li>
-            {%  endfor %}
-        </ol>
+                <div class="container">
+                        <div class="row">
+
+                                <!-- Article List -->
+
+                                <div class="col-sm-12 col-md-8">
+
+                                        <!-- H1 Article -->
+                                        <a class="main-article-link" href="#">
+                                                <div class="main-article mb-5 pb-3">
+                                                        <img src="https://blog.logoscdn.com/wp-content/uploads/2016/01/preach-sermons-620x325.jpg" alt="meteor shower">
+                                                        <h1 class="text-center mt-2">Seventh-day Adventist Sermons</h1>
+                                                </div>
+                                        </a>
+                                        <div class="navigation">
+                                                {{ knp_pagination_render(videos) }}
+                                        </div>
+                                        <!-- Supporting Articles -->
+
+
+
+
+
+                                        {% for video in videos %}
+                                                <div class="article-container my-1">
+                                                        <a href="video/{{ video.id }}/{{ video.title }}/{{video.preacher}}">
+                                                                <img class="article-img" src="{{video.thumbnail}}">
+                                                                <div class="article-title d-inline-block pl-3 align-middle">
+                                                                        <span>{{ video.title }}</span>
+                                                                        <br>
+                                                                        <span class="align-left article-details"> {{ video.preacher }} </span>
+                                                                {#<span class="pl-5 article-details float-right"> 3 hours ago</span>#}
+                                                                </div>
+                                                        </a>
+                                                </div>
+                                        {%  endfor %}
+
+                                </div>
+
+                                <!-- Right bar ad space -->
+
+
+                                <div class="col-sm-12 col-md-4 text-center">
+                                        <div class="ad-space mx-auto mt-1 pb-2 pt-2">
+                                                <img class="advertisement-img" src="{{ asset('images/threeangels2.jpg') }}">
+                                                <p><span class="advertisement-text">New:</span> The Three Angels</p>
+                                                {#"{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                                {#<input hidden class="form-control mr-sm-2" name="book" type="text" value="Rev" placeholder="Search KJV Bible" aria-label="Search">#}
+                                                {#<input hidden class="form-control mr-sm-2" name="chapter" type="text" value="14" placeholder="Search KJV Bible" aria-label="Search">#}
+
+                                                {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+                                                {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+                                                {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+                                                <form method="GET" action="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">
+                                                        <input type="submit" value="Read now!!!">
+                                                </form>
+                                                {#<a href="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">Read now</a>#}
+                                                {#</form>#}
+                                        </div>
+
+                                        <div class="quote-space pb-2 pt-2 px-5">
+                                                <h3 class="text-center pb-3">Inspiring Quotes</h3>
+                                                <p><i class="fa fa-comment"></i> "But we preach Christ crucified, unto the Jews a stumblingblock, and unto the Greeks foolishness; (1Cor 1:23)"<br>— <a href={{ path('read_chapter', {'book': '1Cor', 'chapter': '1'}) }}>Paul the Apostle</a></p>
+
+                                                <p class="pt-4"><i class="fa fa-comment"></i> "The Spirit of the Lord GOD [is] upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to [them that are] bound; (Isaiah 61:1)" <br>— <a href={{ path('read_chapter', {'book': 'Isaiah', 'chapter': '61'}) }}>Jesus Christ</a></p>
+
+                                                <p class="pt-4"><i class="fa fa-comment"></i> "And they went forth, and preached every where, the Lord working with [them,] and confirming the word with signs following. Amen. (Mark 16:20)"<br>— <a href={{ path('read_chapter', {'book': 'Mark', 'chapter': '16'}) }}>Mark, Gospel writer</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
 
         {% endblock %}
 

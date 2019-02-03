@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+<meta http-equiv="refresh" content="60">
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
 
@@ -13,9 +17,10 @@
             <p class="bibleverse"> {{ word }} {{ reference}}</p>
         </div>
 
+
         {% endblock %}
 
-       
+
 
 
         {% block javascripts %}

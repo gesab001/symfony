@@ -11,13 +11,15 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+//use Symfony\Component\HttpKernel\Tests\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
 use App\Entity\Videos;
+use Symfony\Component\HttpFoundation\Request;
 
 
-class VideoController extends AbstractController
+class VideoController extends Controller
 {
 //    /**
 //     * @Route("/")
@@ -92,19 +94,65 @@ class VideoController extends AbstractController
     /**
      * @Route("/video", name="app_video")
      */
-    public function getTitles()
-    {
-        $videos = $this->getDoctrine()->getRepository(Videos::class)->findAll();
-        if (!$videos) {
-            throw $this->createNotFoundException(
-                'No titles found'
-            );
-        }
+//    public function getTitles()
+//    {
+        public function getTitles(Request $request)
+        {
+//        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
+//        if (!$titles) {
+//            throw $this->createNotFoundException(
+//                'No titles found'
+//            );
+//        }
+//
+//
+//        return $this->render('hymn/hymn.html.twig',
+//            array('hymns' => $titles)
+//        );
 
-        return $this->render('video/video.html.twig',
-            array('videos' => $videos)
-        );
-    }
+            // Retrieve the entity manager of Doctrine
+            $em = $this->getDoctrine()->getManager();
+
+            // Get some repository of data, in our case we have an Appointments entity
+            $hymnsRepository = $em->getRepository(Videos::class);
+
+            // Find all the data on the Appointments table, filter your query as you need
+            $allHymnsQuery = $hymnsRepository->createQueryBuilder('id')
+//            ->where('p.status != :status')
+//            ->setParameter('status', 'canceled')
+                ->getQuery();
+
+            /* @var $paginator \Knp\Component\Pager\Paginator */
+            $paginator = $this->get('knp_paginator');
+
+            // Paginate the results of the query
+            $titles = $paginator->paginate(
+            // Doctrine Query, not results
+                $allHymnsQuery,
+                // Define the page parameter
+                $request->query->getInt('page', 1),
+                // Items per page
+                100
+            );
+
+
+            // Render the twig view
+            return $this->render('video/video.html.twig', [
+                'videos' => $titles
+            ]);
+        }
+//    }
+//        $videos = $this->getDoctrine()->getRepository(Videos::class)->findAll();
+//        if (!$videos) {
+//            throw $this->createNotFoundException(
+//                'No titles found'
+//            );
+//        }
+//
+//        return $this->render('video/video.html.twig',
+//            array('videos' => $videos)
+//        );
+//    }
 
 }
 

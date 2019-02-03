@@ -3,9 +3,10 @@
 
 <head>
     <title>{% block title %}Welcome to Minute Ministry{% endblock %}</title>
+    {% block meta %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="refresh" content="60">
+    {% endblock %}
     {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet"  href="{{ asset('css/font-awesome.css') }}">
@@ -30,17 +31,22 @@
         </ul>
         <form class="form-inline my-2 my-lg-0" action="{{ path('search_kjv') }}" method="get">
             <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search KJV Bible" aria-label="Search">
+            {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+            {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+            {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+
             <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
         </form>
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown" style="margin-right: 75px;">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="nav-profile-img rounded-circle" src="images/astronaut-profile.png">
+                    <img class="nav-profile-img rounded-circle" src="{{ asset('images/logincolor.png') }}">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Create Post</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    {#<a class="dropdown-item" href=login>Sign In</a>#}
+
                 </div>
             </li>
         </ul>

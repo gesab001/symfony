@@ -2,14 +2,83 @@
 
 
         {% block body %}
-                <div class="navigation">
-                        {{ knp_pagination_render(hymns) }}
+
+
+            {#<div>#}
+                {#<br><br>#}
+                {#{% for hymn in hymns %}#}
+                    {#<li><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}</a></li>#}
+                {#{%  endfor %}#}
+
+            {#</div>#}
+
+            <div class="container">
+                <div class="row">
+
+                    <!-- Article List -->
+
+                    <div class="col-sm-12 col-md-8">
+
+                        <!-- H1 Article -->
+                        <a class="main-article-link" href="#">
+                            <div class="main-article mb-5 pb-3">
+                                <img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">
+                                <h1 class="text-center mt-2">Seventh-day Adventist Hymnal</h1>
+                            </div>
+                        </a>
+                        <div class="navigation">
+                             {{ knp_pagination_render(hymns) }}
+
+                        </div>
+                        <!-- Supporting Articles -->
+                        {% for hymn in hymns %}
+                        <div class="article-container my-1">
+                            <a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}
+                                {#<img class="article-img" src="{{ asset('images/asteroid.jpeg') }}">#}
+                                {#<div class="article-title d-inline-block pl-3 align-middle">#}
+                                    {#<span>Why do Asteroids Taste Like Bacon?</span>#}
+                                    {#<br>#}
+                                    {#<span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>#}
+                                    {#<span class="pl-5 article-details float-right"> 3 hours ago</span>#}
+                                {#</div>#}
+                            </a>
+                        </div>
+                        {%  endfor %}
+
+                    </div>
+
+                    <!-- Right bar ad space -->
+
+
+                    <div class="col-sm-12 col-md-4 text-center">
+                        <div class="ad-space mx-auto mt-1 pb-2 pt-2">
+                            <img class="advertisement-img" src="{{ asset('images/threeangels2.jpg') }}">
+                            <p><span class="advertisement-text">New:</span> The Three Angels</p>
+                            {#"{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                {#<input hidden class="form-control mr-sm-2" name="book" type="text" value="Rev" placeholder="Search KJV Bible" aria-label="Search">#}
+                                {#<input hidden class="form-control mr-sm-2" name="chapter" type="text" value="14" placeholder="Search KJV Bible" aria-label="Search">#}
+
+                                {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+                            <form method="GET" action="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">
+                                <input type="submit" value="Read now!!!">
+                            </form>
+                            {#<a href="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">Read now</a>#}
+                            {#</form>#}
+                        </div>
+
+                        <div class="quote-space pb-2 pt-2 px-5">
+                            <h3 class="text-center pb-3">Inspiring Quotes</h3>
+                            <p><i class="fa fa-comment"></i> "Therefore will I give thanks unto thee, O LORD, among the heathen, and sing praises unto thy name. (Psalms 18:49)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>King David</a></p>
+
+                            <p class="pt-4"><i class="fa fa-comment"></i> "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord. (Col 3:16)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>Paul the Apostle</a></p>
+
+                            <p class="pt-4"><i class="fa fa-comment"></i> "Then sang Moses and the children of Israel this song unto the LORD, and spake, saying, I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea. (Exodus 15:1)"<br>— <a href="{{ path('read_chapter', {'book': 'Exodus', 'chapter': '15'}) }}">Moses</a>
+                        </div>
+                    </div>
                 </div>
-
-            {% for hymn in hymns %}
-                <li><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}</a></li>
-            {%  endfor %}
-
+            </div>
 
 
 

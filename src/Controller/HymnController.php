@@ -19,6 +19,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
 use Symfony\Component\HttpFoundation\Request;
+use Psr\Log\LoggerInterface;
+
 
 class HymnController extends Controller
 {
@@ -29,6 +31,20 @@ class HymnController extends Controller
 //    {
 //        return new Response('in the beginning God created the heaven and the earth');
 //    }
+    /**
+     * @Route("/news/{slug}", name="article_show")
+     */
+    public function show($slug)
+    {
+        $comments = ["this is good", "i don't like this one", "are you serious"];
+
+        dump($slug,$this);
+        return $this->render('article/show.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+            'slug' => $slug,
+            'comments' => $comments,
+        ]);
+    }
 
     /**
      * @Route("/hymn", name="app_hymn")
@@ -158,5 +174,19 @@ class HymnController extends Controller
         ]);
       //  return new JsonResponse(['hearts' => rand(5, 100)]);
     }
+
+       /**
+     * @Route("/news/{slug}/heart", name="article_toggle_heart", methods={"POST"})
+     */
+
+    public function toggleArticleHeart($slug, LoggerInterface $logger)
+    {
+
+        // TODO - actually heart/unheart the article!
+        $logger->info('Article is being hearted');
+
+        return new JsonResponse(['hearts' => rand(5, 100)]);
+    }
+
 }
 ?>

@@ -127,6 +127,60 @@ function getCurrentID(){
             'results' => $results
         ]);
     }
+
+    /**
+     * @Route("/kjv/{book}/{chapter}", name="read_chapter")
+     */
+    public function readChapter(Request $request, $book, $chapter)
+    {
+//        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
+//        if (!$titles) {
+//            throw $this->createNotFoundException(
+//                'No titles found'
+//            );
+//        }
+//
+//
+//        return $this->render('hymn/hymn.html.twig',
+//            array('hymns' => $titles)
+//        );
+//        $book = $request->get("book");
+//        $chapter = $request->get("chapter");
+        dump($book, $chapter, $this);
+
+        // Retrieve the entity manager of Doctrine
+        $em = $this->getDoctrine()->getManager();
+
+        // Get some repository of data, in our case we have an Appointments entity
+        $hymnsRepository = $em->getRepository(Kjv::class);
+
+        // Find all the data on the Appointments table, filter your query as you need
+        $allHymnsQuery = $hymnsRepository->createQueryBuilder('c')
+            ->where('c.chapter = :chapter')
+            ->andWhere('c.book = :book')
+            ->setParameter('chapter', $chapter)
+            ->setParameter('book', $book)
+            ->getQuery();
+
+        /* @var $paginator \Knp\Component\Pager\Paginator */
+        $paginator  = $this->get('knp_paginator');
+
+        // Paginate the results of the query
+        $results = $paginator->paginate(
+        // Doctrine Query, not results
+            $allHymnsQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            100
+        );
+
+
+        // Render the twig view
+        return $this->render('bible/chapterReadingKjv.html.twig', [
+            'results' => $results
+        ]);
+    }
 }
 
 ?>

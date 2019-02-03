@@ -11,7 +11,7 @@
             <ol>
             {% for result in results %}
 
-                <li>{{ result.word }} ({{ result.book }} {{ result.chapter }}:{{ result.verse }})</li>
+                <li>{{ result.word }} (<a href="{{ path('read_chapter', {'book': result.book, 'chapter': result.chapter}) }}">{{ result.book }} {{ result.chapter }}:{{ result.verse }})</a></li>
 
             {%  endfor %}
             </ol>
