@@ -18,10 +18,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Security\Core\Security;
+use App\Controller\UserController;
 
 class BibleController extends Controller
 {
+
 //    /**
 //     * @Route("/")
 //     */
@@ -29,6 +31,21 @@ class BibleController extends Controller
 //    {
 //        return new Response('in the beginning God created the heaven and the earth');
 //    }
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
+
+    public function getUserProfile()
+    {
+        // returns User object or null if not authenticated
+        $user = $this->security->getUser();
+        return $user;
+    }
 
     /**
      * @Route("/bible")
@@ -64,10 +81,13 @@ function getCurrentID(){
         ->find($id);
 
         if (!$kjv) {
-           throw $this->createNotFoundException(
-              'No verse Found for id '.$id
-        );
-    }
+            throw $this->createNotFoundException(
+                'No verse Found for id ' . $id
+            );
+        }
+
+//        $userprofile = new UserController();
+        $user = $this->getUserProfile();
         $word = $kjv->getWord();
         $book = $kjv->getBook();
         $chapter = $kjv->getChapter();
@@ -78,6 +98,8 @@ function getCurrentID(){
             'book' => $book,
             'chapter' => $chapter,
             'verse' => $verse,
+            'username' => $user
+
         ]);
     }
 
@@ -110,8 +132,10 @@ function getCurrentID(){
             ->setParameter('word', '%'.$keyword.'%')
             ->getQuery();
 
+
         /* @var $paginator \Knp\Component\Pager\Paginator */
         $paginator  = $this->get('knp_paginator');
+        $user = $this->getUser()->getUsername();
 
         // Paginate the results of the query
         $results = $paginator->paginate(
@@ -123,10 +147,15 @@ function getCurrentID(){
             100
         );
 
+//        $totalResults = $results->count();
+
+        $user = $this->getUserProfile();
 
         // Render the twig view
         return $this->render('bible/searchResultsKjv.html.twig', [
-            'results' => $results
+            'results' => $results,
+            'username' => $user
+//          'total' => $totalResults
         ]);
     }
 
@@ -149,6 +178,7 @@ function getCurrentID(){
 //        $book = $request->get("book");
 //        $chapter = $request->get("chapter");
         dump($book, $chapter, $this);
+        $user = $this->getUser()->getUsername();
 
         // Retrieve the entity manager of Doctrine
         $em = $this->getDoctrine()->getManager();
@@ -177,10 +207,12 @@ function getCurrentID(){
             100
         );
 
+        $user = $this->getUserProfile();
 
         // Render the twig view
         return $this->render('bible/chapterReadingKjv.html.twig', [
-            'results' => $results
+            'results' => $results,
+            'username' => $user
         ]);
     }
 }

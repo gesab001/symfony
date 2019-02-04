@@ -17,10 +17,28 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
 use App\Entity\Videos;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 
 
 class VideoController extends Controller
 {
+
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
+
+    public function getUserProfile()
+    {
+        // returns User object or null if not authenticated
+        $user = $this->security->getUser();
+        return $user;
+    }
+
 //    /**
 //     * @Route("/")
 //     */
@@ -72,6 +90,8 @@ class VideoController extends Controller
      */
     public function show($id, $title, $preacher)
     {
+        $user = $this->getUserProfile();
+
         $video = $this->getDoctrine()
             ->getRepository(Videos::class)
             ->find($id);
@@ -83,7 +103,9 @@ class VideoController extends Controller
         }
 
         return $this->render('video/videoShow.html.twig', [
-            'video'=> $video]);
+            'video'=> $video,
+            'username'=> $user
+        ]);
 
 
         // or render a template
@@ -135,10 +157,13 @@ class VideoController extends Controller
                 100
             );
 
+            $user = $this->getUserProfile();
 
             // Render the twig view
             return $this->render('video/video.html.twig', [
-                'videos' => $titles
+                'videos' => $titles,
+                'username' => $user
+
             ]);
         }
 //    }

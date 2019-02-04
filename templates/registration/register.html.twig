@@ -3,12 +3,46 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="container">
+        <div class="row">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
+            <!-- Article List -->
 
-        <button class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            <div class="col-sm-12 col-md-12">
+
+                <!-- H1 Article -->
+                <a class="main-article-link" href="#">
+                    <div class="main-article mb-5 pb-3">
+                        {#<img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">#}
+                        <h1 class="text-center mt-2">Register</h1>
+                    </div>
+                </a>
+                <div class="navigation">
+
+                </div>
+                <!-- Supporting Articles -->
+                    <div class="article-container my-1">
+
+                        {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.email) }}
+                        {{ form_row(registrationForm.password) }}
+                        {{ form_row(registrationForm.firstname) }}
+                        {{ form_row(registrationForm.lastname) }}
+                        {{ form_row(registrationForm.phone) }}
+                        {{ form_row(registrationForm.address) }}
+
+
+                        <button class="btn">Register</button>
+                        {{ form_end(registrationForm) }}
+                    </div>
+
+            </div>
+
+            <!-- Right bar ad space -->
+
+
+
+        </div>
+    </div>
+
 {% endblock %}

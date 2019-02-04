@@ -20,10 +20,27 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Kjv;
 use Symfony\Component\HttpFoundation\Request;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Security\Core\Security;
 
 
 class HymnController extends Controller
 {
+
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
+
+    public function getUserProfile()
+    {
+        // returns User object or null if not authenticated
+        $user = $this->security->getUser();
+        return $user;
+    }
 //    /**
 //     * @Route("/")
 //     */
@@ -77,6 +94,7 @@ class HymnController extends Controller
 
         /* @var $paginator \Knp\Component\Pager\Paginator */
         $paginator  = $this->get('knp_paginator');
+        $user = $this->getUserProfile();
 
         // Paginate the results of the query
         $titles = $paginator->paginate(
@@ -91,7 +109,9 @@ class HymnController extends Controller
 
         // Render the twig view
         return $this->render('hymn/hymn.html.twig', [
-            'hymns' => $titles
+            'hymns' => $titles,
+            'username' => $user
+
         ]);
     }
 
@@ -161,6 +181,8 @@ class HymnController extends Controller
                 'No verse Found for id ' . $number
             );
         }
+        $user = $this->getUserProfile();
+
         $hymnNumber = $aHymn->getNumber();
         $title = $aHymn->getTitle();
 //        $versesRaw = $aHymn->getVerses();
@@ -170,7 +192,8 @@ class HymnController extends Controller
         return $this->render('hymn/showHymn.html.twig', [
             'number' => $hymnNumber,
             'title' => $title,
-            'verses' => $verses
+            'verses' => $verses,
+            'username' => $user
         ]);
       //  return new JsonResponse(['hearts' => rand(5, 100)]);
     }
