@@ -72,10 +72,12 @@ function getCurrentID(){
         $book = $kjv->getBook();
         $chapter = $kjv->getChapter();
         $verse = $kjv->getVerse();
-        $reference = "(" . $book . " " . $chapter . ":" . $verse . ")";
+        //$reference = "(" . $book . " " . $chapter . ":" . $verse . ")";
         return $this->render('bible/word.html.twig', [
             'word' => $word,
-            'reference' => $reference,
+            'book' => $book,
+            'chapter' => $chapter,
+            'verse' => $verse,
         ]);
     }
 

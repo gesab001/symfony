@@ -14,7 +14,8 @@
         {% block body %}
 
         <div class="bibleverse-container">
-            <p class="bibleverse"> {{ word }} {{ reference}}</p>
+            <p class="bibleverse"> {{ word }}</p>
+            <a class="bibleverse" href="/kjv/{{ book }}/{{ chapter }}">({{book }} {{ chapter }}:{{ verse }})</a>
         </div>
 
 
