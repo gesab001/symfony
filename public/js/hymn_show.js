@@ -37,3 +37,15 @@ $(document).ready(function () {
         $('.js-like-article-count').html('TEST');
     });
 });
+
+
+$(document).ready(function(){
+    $("#search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+
+

@@ -135,7 +135,6 @@ function getCurrentID(){
 
         /* @var $paginator \Knp\Component\Pager\Paginator */
         $paginator  = $this->get('knp_paginator');
-        $user = $this->getUser()->getUsername();
 
         // Paginate the results of the query
         $results = $paginator->paginate(
@@ -178,7 +177,6 @@ function getCurrentID(){
 //        $book = $request->get("book");
 //        $chapter = $request->get("chapter");
         dump($book, $chapter, $this);
-        $user = $this->getUser()->getUsername();
 
         // Retrieve the entity manager of Doctrine
         $em = $this->getDoctrine()->getManager();

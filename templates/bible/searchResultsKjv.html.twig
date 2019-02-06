@@ -2,7 +2,7 @@
 
 
         {% block body %}
-            <p>Total results: {{results|length}}</p>
+            <p>Total verses found: {{results.getTotalItemCount}}</p>
                 <div class="navigation">
                         {{ knp_pagination_render(results) }}
                 </div>

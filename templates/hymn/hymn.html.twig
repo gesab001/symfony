@@ -28,12 +28,25 @@
                         </a>
                         <div class="navigation">
                              {{ knp_pagination_render(hymns) }}
+                            <label>Quick Search: <input id="search" type="text"></label>
 
                         </div>
+                        <table id="hymns">
                         <!-- Supporting Articles -->
+                            <tr>
+                                <th>Number</th>
+                                <th>Title</th>
+                            </tr>
                         {% for hymn in hymns %}
-                        <div class="article-container my-1">
-                            <a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}
+
+                                <tr>
+                                    <td>{{ hymn.NUMBER}} </td>
+                                    <td><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn> {{ hymn.TITLE }}</td>
+                                    {#<td><input type="checkbox" name="userId" value="@user.UserId" /></td>#}
+                                </tr>
+
+
+                            {#<a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}#}
                                 {#<img class="article-img" src="{{ asset('images/asteroid.jpeg') }}">#}
                                 {#<div class="article-title d-inline-block pl-3 align-middle">#}
                                     {#<span>Why do Asteroids Taste Like Bacon?</span>#}
@@ -41,9 +54,10 @@
                                     {#<span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>#}
                                     {#<span class="pl-5 article-details float-right"> 3 hours ago</span>#}
                                 {#</div>#}
-                            </a>
-                        </div>
+                            {#</a>#}
+
                         {%  endfor %}
+                    </table>
 
                     </div>
 

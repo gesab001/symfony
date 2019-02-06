@@ -86,6 +86,7 @@ class HymnController extends Controller
         // Get some repository of data, in our case we have an Appointments entity
         $hymnsRepository = $em->getRepository(Hymns::class);
 
+
         // Find all the data on the Appointments table, filter your query as you need
         $allHymnsQuery = $hymnsRepository->createQueryBuilder('id')
 //            ->where('p.status != :status')
@@ -103,17 +104,25 @@ class HymnController extends Controller
             // Define the page parameter
             $request->query->getInt('page', 1),
             // Items per page
-            100
+            695
         );
 
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM App\Entity\Hymns a";
+        $query = $em->createQuery($dql);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            695/*limit per page*/
+        );
 
         // Render the twig view
-        return $this->render('hymn/hymn.html.twig', [
-            'hymns' => $titles,
-            'username' => $user
-
-        ]);
+        return $this->render('hymn/hymn.html.twig', array('hymns' => $pagination));
     }
+
+
 
 
 //    /**

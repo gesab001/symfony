@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block meta %}
-<meta http-equiv="refresh" content="60">
+    {{ parent() }}
+
+    <meta http-equiv="refresh" content="60">
 {% endblock %}
 
 {% block stylesheets %}
@@ -24,12 +26,12 @@
 
 
 
-        {% block javascripts %}
-            {{ parent() }}
+        {#{% block javascripts %}#}
+            {#{{ parent() }}#}
 
-            {{ encore_entry_script_tags('app') }}
+            {#{{ encore_entry_script_tags('app') }}#}
 
-            <!-- Renders app.js & a webpack runtime.js file
-                <script src="/build/runtime.js"></script>
-                <script src="/build/app.js"></script> -->
-        {% endblock %}
+            {#<!-- Renders app.js & a webpack runtime.js file#}
+                {#<script src="/build/runtime.js"></script>#}
+                {#<script src="/build/app.js"></script> -->#}
+        {#{% endblock %}#}
