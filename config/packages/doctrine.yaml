@@ -4,26 +4,79 @@ parameters:
     # environment variables are not available yet.
     # You should not need to change this value.
     env(DATABASE_URL): ''
+#    env(DATABASE_EGW_URL): ''
 
+#doctrine:
+#    dbal:
+#        # configure these for your database server
+#        driver: 'pdo_mysql'
+#        server_version: '5.7'
+#        charset: utf8mb4
+#        default_table_options:
+#            charset: utf8mb4
+#            collate: utf8mb4_unicode_ci
+#
+#        url: '%env(resolve:DATABASE_URL)%'
+#    orm:
+#        auto_generate_proxy_classes: true
+#        naming_strategy: doctrine.orm.naming_strategy.underscore
+#        auto_mapping: true
+#        mappings:
+#            App:
+#                is_bundle: false
+#                type: annotation
+#                dir: '%kernel.project_dir%/src/Entity'
+#                prefix: 'App\Entity'
+#                alias: App
+
+# config/packages/doctrine.yaml
 doctrine:
     dbal:
-        # configure these for your database server
-        driver: 'pdo_mysql'
-        server_version: '5.7'
-        charset: utf8mb4
-        default_table_options:
-            charset: utf8mb4
-            collate: utf8mb4_unicode_ci
+        default_connection: default
+        connections:
+            default:
+                # configure these for your database server
+                    driver: 'pdo_mysql'
+                    server_version: '5.7'
+                    charset: utf8mb4
+                    default_table_options:
+                        charset: utf8mb4
+                        collate: utf8mb4_unicode_ci
 
-        url: '%env(resolve:DATABASE_URL)%'
+                    url: '%env(resolve:DATABASE_URL)%'
+            egw:
+                # configure these for your database server
+                driver: 'pdo_mysql'
+                server_version: '5.7'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                url: '%env(resolve:DATABASE_EGW_URL)%'
+#
     orm:
-        auto_generate_proxy_classes: true
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
-        mappings:
-            App:
-                is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+#                auto_generate_proxy_classes: true
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+#                auto_mapping: true
+                mappings:
+                   App:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Entity'
+                        prefix: 'App\Entity'
+                        alias: App
+            egw:
+                connection: egw
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                auto_mapping: true
+                mappings:
+                    Egw:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Entity/Egw'
+                        prefix: 'App\Entity\Egw'
+                        alias: Egw

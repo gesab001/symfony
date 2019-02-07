@@ -11,6 +11,11 @@ body {
     color: white;
 }
 
+@media screen and (min-width: 720px) {
+    .bibleverse {
+        font-size: 48px;
+    }
+}
 .bibleverse-container {
     /*background: url("../images/IMG_20181124_170549.jpg");*/
     padding: auto;
