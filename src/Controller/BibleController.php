@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use App\Controller\UserController;
 
+
 class BibleController extends Controller
 {
 
@@ -176,7 +177,7 @@ function getCurrentID(){
 //        );
 //        $book = $request->get("book");
 //        $chapter = $request->get("chapter");
-        dump($book, $chapter, $this);
+//        dump($book, $chapter, $this);
 
         // Retrieve the entity manager of Doctrine
         $em = $this->getDoctrine()->getManager();

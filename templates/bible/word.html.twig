@@ -15,6 +15,14 @@
 
         {% block body %}
 
+       {#<body onload="getSeconds(); startTime(); move()">#}
+{##}
+
+
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+
         <div class="bibleverse-container">
             <p class="bibleverse"> {{ word }}</p>
             <a class="bibleverse" href="/kjv/{{ book }}/{{ chapter }}">({{book }} {{ chapter }}:{{ verse }})</a>
@@ -26,12 +34,9 @@
 
 
 
-        {#{% block javascripts %}#}
-            {#{{ parent() }}#}
+        {% block javascripts %}
+            {{ parent() }}
 
-            {#{{ encore_entry_script_tags('app') }}#}
-
-            {#<!-- Renders app.js & a webpack runtime.js file#}
-                {#<script src="/build/runtime.js"></script>#}
-                {#<script src="/build/app.js"></script> -->#}
-        {#{% endblock %}#}
+                <script src="{{ asset('js/minute.js') }}"></script>
+                <script src="/build/app.js"></script>
+        {% endblock %}

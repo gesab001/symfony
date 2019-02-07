@@ -180,7 +180,7 @@ class HymnController extends Controller
     public function openHymn(Request $request, $number)
     {
 
-        dump($number, $this);
+//        dump($number, $this);
         // TODO - actually heart/unheart the article!
         $aHymn = $this->getDoctrine()->getRepository(Hymns::class)
             ->find($number);

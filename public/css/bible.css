@@ -22,5 +22,21 @@ body {
 
 }
 
+.myVerses{
+    position:static;
+    color:blue;
+}
 
+
+#myProgress {
+    width: 100%;
+    background-color: grey;
+}
+#myBar {
+    position:fixed;
+    bottom:7%;
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hc3NldHMvY3NzL2FwcC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSwwR0FBMEc7SUFDMUcsNkJBQTZCO0lBQzdCLHNCQUFzQjs7Q0FFekI7O0FBRUQ7O0lBRUksZUFBZTtJQUNmLGFBQWE7Q0FDaEI7O0FBRUQ7O0lBRUksZ0JBQWdCO0lBQ2hCLG1CQUFtQjs7Q0FFdEIiLCJmaWxlIjoiYXBwLmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIGJhY2tncm91bmQ6IHVybChcImh0dHBzOi8vd3d3LnBsYW53YWxscGFwZXIuY29tL3N0YXRpYy9pbWFnZXMvTmF0dXJlLUJhY2tncm91bmQtV2FsbHBhcGVycy04X2d4d21xbWouanBnXCIpO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgYmFja2dyb3VuZC1zaXplOiAxMDAlO1xuXG59XG5cbi5iaWJsZXZlcnNlIHtcblxuICAgIGZvbnQtc2l6ZTogNXZ3O1xuICAgIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmJpYmxldmVyc2UtY29udGFpbmVyIHtcblxuICAgIHBhZGRpbmc6IDcwcHggMDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG5cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0=*/
