@@ -140,6 +140,8 @@ class VideoController extends Controller
 
             // Find all the data on the Appointments table, filter your query as you need
             $allHymnsQuery = $hymnsRepository->createQueryBuilder('id')
+                ->orderBy('id.id', 'DESC')
+
 //            ->where('p.status != :status')
 //            ->setParameter('status', 'canceled')
                 ->getQuery();
