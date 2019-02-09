@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-end-line="20" />
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="20" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -430,7 +430,7 @@
       <workItem from="1549665108599" duration="4596000" />
       <workItem from="1549670731656" duration="7540000" />
       <workItem from="1549694308793" duration="5732000" />
-      <workItem from="1549723846129" duration="9708000" />
+      <workItem from="1549723846129" duration="9764000" />
     </task>
     <task id="LOCAL-00001" summary="added video site">
       <created>1549134065638</created>
@@ -457,7 +457,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181181000" />
+    <option name="totallyTimeSpent" value="181237000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,7 +470,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="28" width="1682" height="995" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25703794" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -487,7 +486,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.32969698" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.37485582" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37485582" />
       <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49925596" weight="0.32871974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -867,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-end-line="20" />
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="20" selection-end-column="103" />
         </state>
       </provider>
     </entry>
