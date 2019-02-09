@@ -38,5 +38,34 @@ class ScheduleEgw
      */
     private $bookcode;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getBookcode(): ?Books
+    {
+        return $this->bookcode;
+    }
+
+    public function setBookcode(?Books $bookcode): self
+    {
+        $this->bookcode = $bookcode;
+
+        return $this;
+    }
+
 
 }

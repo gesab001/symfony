@@ -59,5 +59,70 @@ class Books
      */
     private $bookmark;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getBookcode(): ?string
+    {
+        return $this->bookcode;
+    }
+
+    public function getBooktitle(): ?string
+    {
+        return $this->booktitle;
+    }
+
+    public function setBooktitle(?string $booktitle): self
+    {
+        $this->booktitle = $booktitle;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
+
+        return $this;
+    }
+
+    public function getTotalparagraphs(): ?int
+    {
+        return $this->totalparagraphs;
+    }
+
+    public function setTotalparagraphs(?int $totalparagraphs): self
+    {
+        $this->totalparagraphs = $totalparagraphs;
+
+        return $this;
+    }
+
+    public function getBookmark(): ?Da
+    {
+        return $this->bookmark;
+    }
+
+    public function setBookmark(?Da $bookmark): self
+    {
+        $this->bookmark = $bookmark;
+
+        return $this;
+    }
+
 
 }

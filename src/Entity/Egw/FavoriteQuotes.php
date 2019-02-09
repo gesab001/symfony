@@ -63,5 +63,82 @@ class FavoriteQuotes
      */
     private $addedDate = 'CURRENT_TIMESTAMP';
 
+    public function getBookcode(): ?string
+    {
+        return $this->bookcode;
+    }
+
+    public function setBookcode(?string $bookcode): self
+    {
+        $this->bookcode = $bookcode;
+
+        return $this;
+    }
+
+    public function getPage(): ?int
+    {
+        return $this->page;
+    }
+
+    public function setPage(?int $page): self
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    public function getParagraph(): ?int
+    {
+        return $this->paragraph;
+    }
+
+    public function setParagraph(?int $paragraph): self
+    {
+        $this->paragraph = $paragraph;
+
+        return $this;
+    }
+
+    public function getWord(): ?string
+    {
+        return $this->word;
+    }
+
+    public function setWord(?string $word): self
+    {
+        $this->word = $word;
+
+        return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUser(): ?string
+    {
+        return $this->user;
+    }
+
+    public function setUser(?string $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getAddedDate(): ?\DateTimeInterface
+    {
+        return $this->addedDate;
+    }
+
+    public function setAddedDate(\DateTimeInterface $addedDate): self
+    {
+        $this->addedDate = $addedDate;
+
+        return $this;
+    }
+
 
 }

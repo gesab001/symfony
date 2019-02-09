@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+            <p>Results: {{results|length}}</p>
+                <div class="navigation">
+                        {{ knp_pagination_render(results) }}
+                </div>
+
+
+            <ol>
+            {% for result in results %}
+
+                <li>{{ result.WORD }} ({{ result.BOOKCODE }} {{ result.PAGE }}:{{ result.PARAGRAPH }})</li>
+
+            {%  endfor %}
+            </ol>
+
+
+
+
+
+
+        {% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+        <script src="{{  asset('js/hymn_show.js') }}"></script>
+{%  endblock %}

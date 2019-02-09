@@ -160,6 +160,61 @@ function getCurrentID(){
     }
 
     /**
+     * @Route("/kjv/search/{keyword}", name="search_kjv_url")
+     */
+    public function searchBible_url(Request $request, $keyword)
+    {
+//        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
+//        if (!$titles) {
+//            throw $this->createNotFoundException(
+//                'No titles found'
+//            );
+//        }
+//
+//
+//        return $this->render('hymn/hymn.html.twig',
+//            array('hymns' => $titles)
+//        );
+        //$keyword = $request->get("keyword");
+        // Retrieve the entity manager of Doctrine
+        $em = $this->getDoctrine()->getManager();
+
+        // Get some repository of data, in our case we have an Appointments entity
+        $hymnsRepository = $em->getRepository(Kjv::class);
+
+        // Find all the data on the Appointments table, filter your query as you need
+        $allHymnsQuery = $hymnsRepository->createQueryBuilder('w')
+            ->where('w.word LIKE :word')
+            ->setParameter('word', '%'.$keyword.'%')
+            ->getQuery();
+
+
+        /* @var $paginator \Knp\Component\Pager\Paginator */
+        $paginator  = $this->get('knp_paginator');
+
+        // Paginate the results of the query
+        $results = $paginator->paginate(
+        // Doctrine Query, not results
+            $allHymnsQuery,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            100
+        );
+
+//        $totalResults = $results->count();
+
+        $user = $this->getUserProfile();
+
+        // Render the twig view
+        return $this->render('bible/searchResultsKjv.html.twig', [
+            'results' => $results,
+            'username' => $user
+//          'total' => $totalResults
+        ]);
+    }
+
+    /**
      * @Route("/kjv/{book}/{chapter}", name="read_chapter")
      */
     public function readChapter(Request $request, $book, $chapter)

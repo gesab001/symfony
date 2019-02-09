@@ -63,5 +63,82 @@ class Egwimages
      */
     private $id;
 
+    public function getBookcode(): ?string
+    {
+        return $this->bookcode;
+    }
+
+    public function setBookcode(?string $bookcode): self
+    {
+        $this->bookcode = $bookcode;
+
+        return $this;
+    }
+
+    public function getPage(): ?int
+    {
+        return $this->page;
+    }
+
+    public function setPage(?int $page): self
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    public function getParagraph(): ?int
+    {
+        return $this->paragraph;
+    }
+
+    public function setParagraph(?int $paragraph): self
+    {
+        $this->paragraph = $paragraph;
+
+        return $this;
+    }
+
+    public function getUrlimage(): ?string
+    {
+        return $this->urlimage;
+    }
+
+    public function setUrlimage(?string $urlimage): self
+    {
+        $this->urlimage = $urlimage;
+
+        return $this;
+    }
+
+    public function getUrlimagetitle(): ?string
+    {
+        return $this->urlimagetitle;
+    }
+
+    public function setUrlimagetitle(?string $urlimagetitle): self
+    {
+        $this->urlimagetitle = $urlimagetitle;
+
+        return $this;
+    }
+
+    public function getUrlimagedescription(): ?string
+    {
+        return $this->urlimagedescription;
+    }
+
+    public function setUrlimagedescription(?string $urlimagedescription): self
+    {
+        $this->urlimagedescription = $urlimagedescription;
+
+        return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
 
 }

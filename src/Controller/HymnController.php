@@ -48,20 +48,20 @@ class HymnController extends Controller
 //    {
 //        return new Response('in the beginning God created the heaven and the earth');
 //    }
-    /**
-     * @Route("/news/{slug}", name="article_show")
-     */
-    public function show($slug)
-    {
-        $comments = ["this is good", "i don't like this one", "are you serious"];
-
-        dump($slug,$this);
-        return $this->render('article/show.html.twig', [
-            'title' => ucwords(str_replace('-', ' ', $slug)),
-            'slug' => $slug,
-            'comments' => $comments,
-        ]);
-    }
+//    /**
+//     * @Route("/news/{slug}", name="article_show")
+//     */
+//    public function show($slug)
+//    {
+//        $comments = ["this is good", "i don't like this one", "are you serious"];
+//
+//        dump($slug,$this);
+//        return $this->render('article/show.html.twig', [
+//            'title' => ucwords(str_replace('-', ' ', $slug)),
+//            'slug' => $slug,
+//            'comments' => $comments,
+//        ]);
+//    }
 
     /**
      * @Route("/hymn", name="app_hymn")
@@ -207,6 +207,39 @@ class HymnController extends Controller
       //  return new JsonResponse(['hearts' => rand(5, 100)]);
     }
 
+    /**
+     * @Route("/hymn/{number}", name="open_a_hymn_number")
+     */
+    public function openHymnByNumber(Request $request, $number)
+    {
+
+//        dump($number, $this);
+        // TODO - actually heart/unheart the article!
+        $aHymn = $this->getDoctrine()->getRepository(Hymns::class)
+            ->find($number);
+
+        if (!$aHymn) {
+            throw $this->createNotFoundException(
+                'No verse Found for id ' . $number
+            );
+        }
+        $user = $this->getUserProfile();
+
+        $hymnNumber = $aHymn->getNumber();
+        $title = $aHymn->getTitle();
+//        $versesRaw = $aHymn->getVerses();
+//        $verses = $this->splitVerses($versesRaw);
+        $verses = $aHymn->getVerses();
+        // unset($verses[0]);
+        return $this->render('hymn/showHymn.html.twig', [
+            'number' => $hymnNumber,
+            'title' => $title,
+            'verses' => $verses,
+            'username' => $user
+        ]);
+        //  return new JsonResponse(['hearts' => rand(5, 100)]);
+    }
+
        /**
      * @Route("/news/{slug}/heart", name="article_toggle_heart", methods={"POST"})
      */
@@ -219,6 +252,8 @@ class HymnController extends Controller
 
         return new JsonResponse(['hearts' => rand(5, 100)]);
     }
+
+
 
 }
 ?>

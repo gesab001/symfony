@@ -35,5 +35,34 @@ class Egwtitles
      */
     private $year;
 
+    public function getBookcode(): ?string
+    {
+        return $this->bookcode;
+    }
+
+    public function getBooktitle(): ?string
+    {
+        return $this->booktitle;
+    }
+
+    public function setBooktitle(?string $booktitle): self
+    {
+        $this->booktitle = $booktitle;
+
+        return $this;
+    }
+
+    public function getYear(): ?string
+    {
+        return $this->year;
+    }
+
+    public function setYear(?string $year): self
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
 
 }

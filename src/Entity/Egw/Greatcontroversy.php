@@ -84,5 +84,118 @@ class Greatcontroversy
      */
     private $urlimagedescription;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getWord(): ?string
+    {
+        return $this->word;
+    }
+
+    public function setWord(?string $word): self
+    {
+        $this->word = $word;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getPage(): ?int
+    {
+        return $this->page;
+    }
+
+    public function setPage(?int $page): self
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    public function getParagraph(): ?int
+    {
+        return $this->paragraph;
+    }
+
+    public function setParagraph(?int $paragraph): self
+    {
+        $this->paragraph = $paragraph;
+
+        return $this;
+    }
+
+    public function getUrlimage(): ?string
+    {
+        return $this->urlimage;
+    }
+
+    public function setUrlimage(?string $urlimage): self
+    {
+        $this->urlimage = $urlimage;
+
+        return $this;
+    }
+
+    public function getUrlimagetitle(): ?string
+    {
+        return $this->urlimagetitle;
+    }
+
+    public function setUrlimagetitle(?string $urlimagetitle): self
+    {
+        $this->urlimagetitle = $urlimagetitle;
+
+        return $this;
+    }
+
+    public function getUrlimagedescription(): ?string
+    {
+        return $this->urlimagedescription;
+    }
+
+    public function setUrlimagedescription(?string $urlimagedescription): self
+    {
+        $this->urlimagedescription = $urlimagedescription;
+
+        return $this;
+    }
+
 
 }

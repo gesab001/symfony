@@ -36,6 +36,7 @@ doctrine:
         connections:
             default:
                 # configure these for your database server
+                    url: '%env(resolve:DATABASE_URL)%'
                     driver: 'pdo_mysql'
                     server_version: '5.7'
                     charset: utf8mb4
@@ -43,16 +44,16 @@ doctrine:
                         charset: utf8mb4
                         collate: utf8mb4_unicode_ci
 
-                    url: '%env(resolve:DATABASE_URL)%'
             egw:
                 # configure these for your database server
-                driver: 'pdo_mysql'
-                server_version: '5.7'
-                charset: utf8mb4
-                default_table_options:
+                    url: '%env(resolve:DATABASE_EGW_URL)%'
+                    driver: 'pdo_mysql'
+                    server_version: '5.7'
                     charset: utf8mb4
-                    collate: utf8mb4_unicode_ci
-                url: '%env(resolve:DATABASE_EGW_URL)%'
+                    default_table_options:
+                       charset: utf8mb4
+                       collate: utf8mb4_unicode_ci
+
 #
     orm:
         default_entity_manager: default
@@ -72,7 +73,7 @@ doctrine:
             egw:
                 connection: egw
                 naming_strategy: doctrine.orm.naming_strategy.underscore
-                auto_mapping: true
+#                auto_mapping: true
                 mappings:
                     Egw:
                         is_bundle: false
