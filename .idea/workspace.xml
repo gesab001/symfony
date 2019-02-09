@@ -2,158 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42424c5e-c1d3-49c3-a486-a9e9c76fd4af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/EgwController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/egw/chapterReadingEgw.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/egw/searchResultsEgw.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/documents/.~lock.TMA3_BIT793_9802397.odt#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/documents/TMA3_BIT793_9802397.odt" beforeDir="false" afterPath="$PROJECT_DIR$/public/documents/TMA3_BIT793_9802397.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BibleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BibleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HymnController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HymnController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1bc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1mcp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/1mcp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1sg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/1sg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1sm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/1sm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1sp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/1sp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1t.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/1t.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/2bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2mcp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/2mcp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2sg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/2sg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2sm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/2sm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2sp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/2sp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2t.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/2t.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/3bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/3bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/3sg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/3sg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/3sm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/3sm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/3sp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/3sp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/3t.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/3t.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4asg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/4asg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/4bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4bsg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/4bsg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4sp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/4sp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4t.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/4t.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/5bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/5bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/5t.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/5t.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/6bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/6bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/6t.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/6t.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/7abc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/7abc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/7bc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/7bc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Aa.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Aa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Actsoftheapostles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Actsoftheapostles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ah.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ah.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Apm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Apm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ay.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Bcn.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Bcn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Bible.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Bible.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cd.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ce.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cev.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cev.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Childguidance.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Childguidance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Chl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Chl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Chs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Chs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cme.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cme.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Col.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Col.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Con.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Con.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Csa.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Csa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Csw.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Csw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ctbh.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ctbh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ctr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ctr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cw.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Cw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Da.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Da.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Dd.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Dd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Debt.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Debt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Devotional.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Devotional.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Dg.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Dg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Dietdevotional.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Dietdevotional.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ed.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Education.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Education.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/EgwWritings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/EgwWritings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/EgwWritingsComplete.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/EgwWritingsComplete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Egwimages.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Egwimages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Egwtitles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Egwtitles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ev.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ev.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ew.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ew.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Exv.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Exv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Exv54.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Exv54.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/FavoriteQuotes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/FavoriteQuotes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Fe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Fe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Flb.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Flb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Fw.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Fw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Gc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Gc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Gc88.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Gc88.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Greatcontroversy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Greatcontroversy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Gw.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Gw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Gw92.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Gw92.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hdl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Hdl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hfm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Hfm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Hl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Hp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Hs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hvn.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Hvn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Lde.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Lde.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Lhu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Lhu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Lp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Lp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ls.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ls80.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ls80.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ls88.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ls88.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Lyl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Lyl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Mar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Mc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mh.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Mh.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/MigrationVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/MigrationVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mindcharacterpersonality1.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Mindcharacterpersonality1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mindcharacterpersonality2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Mindcharacterpersonality2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ministryofhealing.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ministryofhealing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ml.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Mm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Myp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Myp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Nl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Nl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ofc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ofc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ohc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ohc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pam.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Pam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Patriarchsandprophets.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Patriarchsandprophets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pcp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Pcp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pk.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Pk.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Pm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Pp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Pr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Prophetsandkings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Prophetsandkings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Rc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Rc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Ry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sa.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sc.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/ScheduleEgw.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/ScheduleEgw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sd.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sj.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Spted.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Spted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Sw.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Sw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Te.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Te.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Videos.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Videos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User1.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,15 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BibleController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2220">
-              <caret line="162" column="59" selection-start-line="162" selection-start-column="59" selection-end-line="162" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -210,17 +53,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="101" selection-start-line="19" selection-start-column="101" selection-end-line="19" selection-end-column="101" />
+            <state relative-caret-position="255">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/EgwController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+              <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
               <folding>
                 <element signature="e#157#196#0#PHP" expanded="true" />
                 <element signature="e#2557#2579#0#PHP" expanded="true" />
@@ -281,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/hymn/hymn.html.twig" />
         <option value="$PROJECT_DIR$/templates/mypagination.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/test/paginator.yaml" />
         <option value="$PROJECT_DIR$/config/error/exception.yaml.php" />
@@ -332,6 +183,7 @@
         <option value="$PROJECT_DIR$/templates/egw/chapterReadingEgw.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/HymnController.php" />
         <option value="$PROJECT_DIR$/src/Controller/EgwController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -478,62 +330,6 @@
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="bible" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="egw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -609,7 +405,7 @@
       <workItem from="1549607103843" duration="10751000" />
       <workItem from="1549665108599" duration="4596000" />
       <workItem from="1549670731656" duration="7540000" />
-      <workItem from="1549694308793" duration="452000" />
+      <workItem from="1549694308793" duration="3888000" />
     </task>
     <task id="LOCAL-00001" summary="added video site">
       <created>1549134065638</created>
@@ -636,7 +432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166193000" />
+    <option name="totallyTimeSpent" value="169629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -651,7 +447,7 @@
     <frame x="-1" y="28" width="1682" height="995" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25397795" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25397795" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -666,7 +462,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.32969698" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.272203" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.272203" />
       <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49925596" weight="0.32871974" />
       <window_info anchor="right" id="Remote Host" weight="0.32986537" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -720,13 +516,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/test/paginator.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/bible/chapterReadingKjv.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1006,13 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="101" selection-start-line="19" selection-start-column="101" selection-end-line="19" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HymnController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2925">
@@ -1037,13 +819,27 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/EgwController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="87" column="14" lean-forward="true" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+          <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
           <folding>
             <element signature="e#157#196#0#PHP" expanded="true" />
             <element signature="e#2557#2579#0#PHP" expanded="true" />
             <element signature="e#4400#4432#0#PHP" expanded="true" />
             <element signature="e#6324#6357#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
         </state>
       </provider>
     </entry>
