@@ -27,8 +27,12 @@ use Aws\Exception\AwsException;
 use Aws\S3\MultipartUploader;
 use Aws\Exception\MultipartUploadException;
 use App\Service\MessageGenerator;
+use Symfony\Component\Dotenv\Dotenv;
+
 class VideoController extends Controller
+
 {
+
 
     private $security;
 
@@ -180,6 +184,7 @@ class VideoController extends Controller
      */
     public function uploadVideo(Request $request)
     {
+
         $request = Request::createFromGlobals();
 //
         $myEntity = new Videos();
@@ -187,9 +192,16 @@ class VideoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+//            $dotenv = new Dotenv();
+//            $dotenv->load(__DIR__.'/.env');
+
+// You can also load several files
+//            $dotenv->load(__DIR__.'/.env', __DIR__.'/.env.dev');
             // encode the plain password
-            $credentials = CredentialProvider::env();
-           // $credentials = new Credentials('AKIAIYWLUPEWAG2SZDCQ', 'uaPzweJdVk0W/K+eGjcWEuDS7Lg/bzL+rik7krv9');
+//            $credentials = CredentialProvider::env();
+            $key = getenv('AWS_KEY');
+            $secret = getenv('AWS_SECRET_KEY');
+            $credentials = new Credentials($key, $secret);
             $s3Client = new S3Client([
                 'credentials' => $credentials,
                 'region' => 'ap-southeast-2',

@@ -168,17 +168,17 @@ class Videos
         return $this;
     }
 
-    public function getMyDocument(): ?Document
-    {
-        return $this->myDocument;
-    }
-
-    public function setMyDocument(?Document $myDocument): self
-    {
-        $this->myDocument = $myDocument;
-
-        return $this;
-    }
+//    public function getMyDocument(): ?Document
+//    {
+//        return $this->myDocument;
+//    }
+//
+//    public function setMyDocument(?Document $myDocument): self
+//    {
+//        $this->myDocument = $myDocument;
+//
+//        return $this;
+//    }
 
     /**
      * @ORM\Column(type="string")
