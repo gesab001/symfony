@@ -10,16 +10,23 @@
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
+use App\Form\UploadVideoType;
+use Gaufrette\Adapter\AwsS3;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Symfony\Component\HttpKernel\Tests\Controller;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Kjv;
+
 use App\Entity\Videos;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
-
-
+use Aws\Credentials\Credentials;
+use Aws\S3\S3Client;
+use Aws\Credentials\CredentialProvider;
+use Aws\Exception\AwsException;
+use Aws\S3\MultipartUploader;
+use Aws\Exception\MultipartUploadException;
+use App\Service\MessageGenerator;
 class VideoController extends Controller
 {
 
@@ -168,19 +175,71 @@ class VideoController extends Controller
 
             ]);
         }
-//    }
-//        $videos = $this->getDoctrine()->getRepository(Videos::class)->findAll();
-//        if (!$videos) {
-//            throw $this->createNotFoundException(
-//                'No titles found'
-//            );
-//        }
+    /**
+     * @Route("/video/upload", name="upload_video", methods="post")
+     */
+    public function uploadVideo(Request $request)
+    {
+        $request = Request::createFromGlobals();
 //
-//        return $this->render('video/video.html.twig',
-//            array('videos' => $videos)
-//        );
-//    }
+        $myEntity = new Videos();
+        $form = $this->createForm(UploadVideoType::class, $myEntity);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            // encode the plain password
+            $credentials = CredentialProvider::env();
+           // $credentials = new Credentials('AKIAIYWLUPEWAG2SZDCQ', 'uaPzweJdVk0W/K+eGjcWEuDS7Lg/bzL+rik7krv9');
+            $s3Client = new S3Client([
+                'credentials' => $credentials,
+                'region' => 'ap-southeast-2',
+                'version' => '2006-03-01'
+            ]);
+//            $filerequest = $this->get('brochure');
+//            $source = $request->files->get('brochure');
+            $video_title = $form->get('title')->getData();
+            $file_path = $form->get('brochure')->getData();
+//            $uploader = new MultipartUploader($s3Client, $source, [
+//                'bucket' => 'adventistsermonvideos',
+//                'key' => 'my-file.jpg',
+//            ]);
+//
+//            try {
+//                $result = $uploader->upload();
+//                echo "Upload complete: {$result['ObjectURL']}\n";
+//            } catch (MultipartUploadException $e) {
+//                echo $e->getMessage() . "\n";
+//            }
+            try {
+                // Upload data.
+                $result = $s3Client->putObject([
+                    'Bucket' => "adventistsermonvideos",
+                    'Key'    => $video_title.".jpg",
+                    'SourceFile'   => $file_path,
+                    'ACL'    => 'public-read'
+                ]);
+
+                // Print the URL to the object.
+                echo $result['ObjectURL'] . PHP_EOL;
+            } catch (S3Exception $e) {
+                echo $e->getMessage() . PHP_EOL;
+            }
+
+            return new Response($video_title . 'in the beginning God created the heaven and the earth');
+        }
+        //
+
+//
+//// Use multipart upload
+
+        return $this->render('video/uploadVideo.html.twig', [
+//            'videos' => $titles,
+//            'username' => $user,
+            'uploadVideoForm' => $form->createView()
+
+        ]);
+
+    }
 }
 
 

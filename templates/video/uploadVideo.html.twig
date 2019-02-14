@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <!-- Article List -->
+
+            <div class="col-sm-12 col-md-12">
+
+                <!-- H1 Article -->
+                <a class="main-article-link" href="#">
+                    <div class="main-article mb-5 pb-3">
+                        {#<img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">#}
+                        <h1 class="text-center mt-2">Register</h1>
+                    </div>
+                </a>
+                <div class="navigation">
+
+                </div>
+                <!-- Supporting Articles -->
+                    <div class="article-container my-1">
+                        {{ form_start(uploadVideoForm) }}
+                         ...
+
+                        {{ form_row(uploadVideoForm.brochure) }}
+                        <button class="btn">Register</button>
+                        {{ form_end(uploadVideoForm) }}
+
+                    </div>
+
+            </div>
+
+
+            <form action="{{ path('upload_video') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" />
+                <input type="submit"/>
+            </form>
+            <!-- Right bar ad space -->
+
+
+
+        </div>
+    </div>
+
+{% endblock %}
