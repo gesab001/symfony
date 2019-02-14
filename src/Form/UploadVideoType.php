@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 class UploadVideoType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -20,7 +21,7 @@ class UploadVideoType extends AbstractType
             ->add('Preacher')
             ->add('views')
             ->add('description')
-            ->add('brochure', FileType::class, ['label' => 'Brochure (PDF file)'])
+            ->add('filepath', FileType::class, ['label' => 'Video file'])
 //            ->add('myDocument', VichFileType::class, [
 //                'label'         => false,
 //                'required'      => false,

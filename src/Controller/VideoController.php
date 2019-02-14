@@ -9,14 +9,23 @@
 
 // src/Controller/LuckyController.php
 namespace App\Controller;
-
+use Aws\S3\Exception\S3Exception;
+use PhpParser\Error;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
 use App\Form\UploadVideoType;
 use Gaufrette\Adapter\AwsS3;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Symfony\Component\HttpKernel\Tests\Controller;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\File;
 use App\Entity\Videos;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -24,8 +33,10 @@ use Aws\Credentials\Credentials;
 use Aws\S3\S3Client;
 use Aws\Credentials\CredentialProvider;
 use Aws\Exception\AwsException;
+use Aws\S3\Exception\S3Exception as S3;
 use Aws\S3\MultipartUploader;
 use Aws\Exception\MultipartUploadException;
+use Aws\S3\ObjectUploader;
 use App\Service\MessageGenerator;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -180,25 +191,31 @@ class VideoController extends Controller
             ]);
         }
     /**
-     * @Route("/video/upload", name="upload_video", methods="post")
+     * @Route("/video/upload", name="upload_video")
      */
-    public function uploadVideo(Request $request)
+    public function uploadVideo()
     {
 
         $request = Request::createFromGlobals();
-//
-        $myEntity = new Videos();
-        $form = $this->createForm(UploadVideoType::class, $myEntity);
+////
+//        $myEntity = new Videos();
+//        $form = $this->createForm(UploadVideoType::class, $myEntity);
+        $defaultData = ['description' => 'Type your message here'];
+        $form = $this->createFormBuilder($defaultData)
+            ->add('video', FileType::class)
+            ->add('thumbnail', FileType::class)
+            ->add('title', TextType::class)
+            ->add('preacher', TextType::class)
+            ->add('description', TextareaType::class)
+            ->add('submit', SubmitType::class)
+
+            ->getForm();
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-//            $dotenv = new Dotenv();
-//            $dotenv->load(__DIR__.'/.env');
 
-// You can also load several files
-//            $dotenv->load(__DIR__.'/.env', __DIR__.'/.env.dev');
-            // encode the plain password
-//            $credentials = CredentialProvider::env();
+            $bucket = getEnv('AWS_BUCKET_NAME');
             $key = getenv('AWS_KEY');
             $secret = getenv('AWS_SECRET_KEY');
             $credentials = new Credentials($key, $secret);
@@ -207,10 +224,14 @@ class VideoController extends Controller
                 'region' => 'ap-southeast-2',
                 'version' => '2006-03-01'
             ]);
-//            $filerequest = $this->get('brochure');
 //            $source = $request->files->get('brochure');
+
             $video_title = $form->get('title')->getData();
-            $file_path = $form->get('brochure')->getData();
+            $preacher = $form->get('preacher')->getData();
+            $description = $form->get('description')->getData();
+
+            $video_file_path = $form->get('video')->getData();
+            $thumbnail_file_path = $form->get('thumbnail')->getData();
 //            $uploader = new MultipartUploader($s3Client, $source, [
 //                'bucket' => 'adventistsermonvideos',
 //                'key' => 'my-file.jpg',
@@ -222,22 +243,75 @@ class VideoController extends Controller
 //            } catch (MultipartUploadException $e) {
 //                echo $e->getMessage() . "\n";
 //            }
-            try {
-                // Upload data.
-                $result = $s3Client->putObject([
-                    'Bucket' => "adventistsermonvideos",
-                    'Key'    => $video_title.".jpg",
-                    'SourceFile'   => $file_path,
-                    'ACL'    => 'public-read'
-                ]);
+            $key = $video_title;
+            $source = fopen($video_file_path, 'rb');
+            $uploader = new ObjectUploader(
+                $s3Client,
+                $bucket,
+                $key,
+                $source,
+                'public-read',
+                ['Metadata' => ['preacher'=> $preacher, 'description' => $description],
 
-                // Print the URL to the object.
-                echo $result['ObjectURL'] . PHP_EOL;
-            } catch (S3Exception $e) {
-                echo $e->getMessage() . PHP_EOL;
-            }
+            ]);
 
-            return new Response($video_title . 'in the beginning God created the heaven and the earth');
+
+            do {
+                try {
+                    $result = $uploader->upload();
+                    if ($result["@metadata"]["statusCode"] == '200') {
+                        return new Response('<p>File successfully uploaded to ' . $result["ObjectURL"] . '.</p>');
+                    }
+                    print($result);
+                } catch (MultipartUploadException $e) {
+                    rewind($video_file_path);
+                    $uploader = new MultipartUploader($s3Client, $video_file_path, [
+                        'state' => $e->getState(),
+                    ]);
+                }
+            } while (!isset($result));
+//
+//            try {
+//                // Upload data.
+//                $video_result = $s3Client->putObject([
+//                    'Bucket' => "adventistsermonvideos",
+//                    'Key'    => $video_title.".mp4",
+//                    'SourceFile'   => $video_file_path,
+//                    'ContentType' => 'video/mp4',
+//                    'Metadata' => ['preacher'=> $preacher, 'description' => $description],
+//                    'ACL'    => 'public-read'
+//                ]);
+//
+//                // Print the URL to the object.
+//                echo $video_result['ObjectURL'] . PHP_EOL;
+//            } catch (S3 $e) {
+//                $file_error = new File();
+//                $error_message = $file_error::TOO_LARGE_ERROR;
+//                echo $e->getMessage() . PHP_EOL;
+//            }
+//
+//            try {
+//                // Upload data.
+//                $thumbnail_result = $s3Client->putObject([
+//                    'Bucket' => "adventistsermonvideos",
+//                    'Key'    => $video_title.".jpg",
+//                    'SourceFile'   => $thumbnail_file_path,
+//                    'Metadata' => ['preacher'=> $preacher, 'description' => $description],
+//                    'ContentType' => 'image/jpg',
+//                    'ACL'    => 'public-read'
+//                ]);
+//
+//                // Print the URL to the object.
+//                echo $thumbnail_result['ObjectURL'] . PHP_EOL;
+//            } catch (S3 $e) {
+//                return new Response($e->getMessage() . PHP_EOL);
+//            }
+//            catch (Error $error){
+//                return new Response ( $error->getMessage() . PHP_EOL);
+//
+//            }
+
+            return new Response($video_title . " and " . $thumbnail_file_path . " successfully uploaded." );
         }
         //
 
