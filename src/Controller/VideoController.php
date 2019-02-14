@@ -243,7 +243,7 @@ class VideoController extends Controller
 //            } catch (MultipartUploadException $e) {
 //                echo $e->getMessage() . "\n";
 //            }
-            $key = $video_title;
+            $key = $video_title . ".mp4";
             $source = fopen($video_file_path, 'rb');
             $uploader = new ObjectUploader(
                 $s3Client,
@@ -251,25 +251,48 @@ class VideoController extends Controller
                 $key,
                 $source,
                 'public-read',
-                ['Metadata' => ['preacher'=> $preacher, 'description' => $description],
+                ['Metadata' => ['preacher'=> $preacher,
+                    'description' => $description,
+                    'ContentType' => 'video/mp4'],
 
             ]);
 
 
             do {
                 try {
+                    $thumbnail_result = $s3Client->putObject([
+                        'Bucket' => "adventistsermonvideos",
+                        'Key'    => $video_title.".jpg",
+                        'SourceFile'   => $thumbnail_file_path,
+                        'Metadata' => ['preacher'=> $preacher, 'description' => $description],
+                        'ContentType' => 'image/jpg',
+                        'ACL'    => 'public-read'
+                    ]);
+
+                    // Print the URL to the object.
+                    echo $thumbnail_result['ObjectURL'] . PHP_EOL;
+
                     $result = $uploader->upload();
                     if ($result["@metadata"]["statusCode"] == '200') {
                         return new Response('<p>File successfully uploaded to ' . $result["ObjectURL"] . '.</p>');
                     }
                     print($result);
-                } catch (MultipartUploadException $e) {
-                    rewind($video_file_path);
-                    $uploader = new MultipartUploader($s3Client, $video_file_path, [
-                        'state' => $e->getState(),
-                    ]);
-                }
+                    } catch (MultipartUploadException $e) {
+                        rewind($video_file_path);
+                        $uploader = new MultipartUploader($s3Client, $video_file_path, [
+                            'state' => $e->getState(),
+                        ]);
+
+                    } catch (S3 $e) {
+                        return new Response($e->getMessage() . PHP_EOL);
+                    }
+                    catch (Error $error){
+                        return new Response ( $error->getMessage() . PHP_EOL);
+
+                    }
+
             } while (!isset($result));
+
 //
 //            try {
 //                // Upload data.

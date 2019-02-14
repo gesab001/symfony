@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/VideoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="253" column="85" lean-forward="true" selection-start-line="253" selection-start-column="85" selection-end-line="253" selection-end-column="85" />
+            <state relative-caret-position="352">
+              <caret line="244" column="15" lean-forward="true" selection-start-line="244" selection-start-column="15" selection-end-line="244" selection-end-column="15" />
               <folding>
                 <element signature="e#156#189#0#PHP" expanded="true" />
               </folding>
@@ -192,8 +192,8 @@
         <option value="$PROJECT_DIR$/src/Entity/Videos.php" />
         <option value="$PROJECT_DIR$/public/documents/phpinfo" />
         <option value="$PROJECT_DIR$/public/documents/phpinfo.php" />
-        <option value="$PROJECT_DIR$/src/Controller/VideoController.php" />
         <option value="$PROJECT_DIR$/templates/video/uploadVideo.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/VideoController.php" />
       </list>
     </option>
   </component>
@@ -459,7 +459,7 @@
       <workItem from="1549754682410" duration="506000" />
       <workItem from="1549955618203" duration="7619000" />
       <workItem from="1549986939726" duration="52654000" />
-      <workItem from="1550164617299" duration="5600000" />
+      <workItem from="1550164617299" duration="8050000" />
     </task>
     <task id="LOCAL-00001" summary="added video site">
       <created>1549134065638</created>
@@ -486,7 +486,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248802000" />
+    <option name="totallyTimeSpent" value="251252000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -818,8 +818,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/VideoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="253" column="85" lean-forward="true" selection-start-line="253" selection-start-column="85" selection-end-line="253" selection-end-column="85" />
+        <state relative-caret-position="352">
+          <caret line="244" column="15" lean-forward="true" selection-start-line="244" selection-start-column="15" selection-end-line="244" selection-end-column="15" />
           <folding>
             <element signature="e#156#189#0#PHP" expanded="true" />
           </folding>
