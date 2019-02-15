@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Sabbath{% endblock %}
+
+{% block body %}
+    <h1>Create new Sabbath</h1>
+
+    {{ include('sabbath/_form.html.twig') }}
+
+    <a href="{{ path('sabbath_index') }}">back to list</a>
+{% endblock %}

@@ -22,24 +22,45 @@
                 </div>
                 <!-- Supporting Articles -->
                     <div class="article-container my-1">
-                        {{ form_start(uploadVideoForm) }}
-
+                        {{ form_start(uploadVideoForm, {'attr': {'id': 'uploadImage'}}) }}
 
                         {#{{ form_row(uploadVideoForm.filepath) }}#}
                         {#<button class="btn">Register</button>#}
+                        {#<div class="uploadProgress">#}
+                            {#<div class="bar"></div >#}
+                            {#<div class="percent">0%</div >#}
+                        {#</div>#}
+
+                        {#<div id="status"></div>#}
                         {{ form_end(uploadVideoForm) }}
 
-                    </div>
+                    {#</div>#}
+                {#<div class="progress">#}
+                    {#<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>#}
+                {#</div>#}
+                {#<div id="targetLayer" style="display:none;"></div>#}
+                {#</form>#}
+                {#<div id="loader-icon" style="display:none;"><img src="{{ asset('images/asteroid.jpeg') }}" /></div>#}
+                        {#<form#}
+                                {#action="http://malsup.com/jquery/form/file-echo2.php"#}
+                                {#method="post"#}
+                                {#enctype="multipart/form-data">#}
+
+                            {#<input type="file" name="myfile"><br>#}
+                            {#<input type="submit" value="Upload File to Server">#}
+                        {#</form>#}
+
+                        <div class="progress">
+                            <div class="bar"></div >
+                            <div class="percent">0%</div >
+                        </div>
+
+                        <div id="status"></div>
+                        <button>Send an HTTP POST request to a page and get the result back</button>
 
             </div>
 
 
-            <div class="progress">
-                <div class="bar"></div >
-                <div class="percent">0%</div >
-            </div>
-
-            <div id="status"></div>
 
             {#<form action="{{ path('upload_video') }}" method="POST" enctype="multipart/form-data">#}
                 {#<input type="file" name="image" />#}
@@ -51,10 +72,65 @@
 
         </div>
     </div>
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <style>
+        /*body { padding: 0 30px; font-family: 'Lucida Grande', 'Lucida Sans', arial, sans-serif; }*/
+        /*form { display: block; margin: 20px auto; background: #FFD7AB; border-radius: 5px; padding: 15px }*/
+        /*h2 { margin-top: 50px; }*/
+        /*pre { background: #eee; padding: 10px; border-radius: 5px; overflow: auto }*/
+        .progress { position:relative; width:100%; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+        .bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+        .percent { position:absolute; display:inline-block; top:3px; left:48%; }
+    </style>
+{% endblock %}#}
 
     {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-1.10.2.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/jquery.form.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+        {#<script>#}
+            {#$(document).ready(function(){#}
+                {#$('#uploadImage').submit(function(event){#}
+                    {#if($('#form_video').val())#}
+                    {#{#}
+                        {#event.preventDefault();#}
+                        {#$('#loader-icon').show();#}
+                        {#$('#targetLayer').hide();#}
+                        {#$(this).ajaxSubmit({#}
+                            {#target: '#targetLayer',#}
+                            {#beforeSubmit:function(){#}
+                                {#$('.progress-bar').width('50%');#}
+                            {#},#}
+                            {#uploadProgress: function(event, position, total, percentageComplete)#}
+                            {#{#}
+                                {#$('.progress-bar').animate({#}
+                                    {#width: percentageComplete + '%'#}
+                                {#}, {#}
+                                    {#duration: 1000#}
+                                {#});#}
+                            {#},#}
+                            {#success:function(){#}
+                                {#$('#loader-icon').hide();#}
+                                {#$('#targetLayer').show();#}
+                            {#},#}
+                            {#resetForm: true#}
+                        {#});#}
+                    {#}#}
+                    {#return false;#}
+                {#});#}
+            {#});#}
+        {#</script>#}
+
         <script>
-            $(function() {
+            (function() {
+                "use strict";
 
                 var bar = $('.bar');
                 var percent = $('.percent');
@@ -72,14 +148,64 @@
                         bar.width(percentVal);
                         percent.html(percentVal);
                     },
-                    complete: function(xhr) {
+                    success: function(data, statusText, xhr) {
+                        var percentVal = '100%';
+                        bar.width(percentVal);
+                        percent.html(percentVal);
                         status.html(xhr.responseText);
+                    },
+                    error: function(xhr, statusText, err) {
+                        status.html(err || statusText);
                     }
                 });
-            });
 
+            })();
         </script>
+        {#<script>#}
+            {#$(document).ready(function () {#}
+                {#$('#upload')#}
 
+            {#})#}
+            {#// $(function() {#}
+            {#//#}
+            {#//     var bar = $('.bar');#}
+            {#//     var percent = $('.percent');#}
+            {#//     var status = $('#status');#}
+            {#//#}
+            {#//     $('form').ajaxForm({#}
+            {#//         beforeSend: function() {#}
+            {#//             status.empty();#}
+            {#//             var percentVal = '0%';#}
+            {#//             bar.width(percentVal);#}
+            {#//             percent.html(percentVal);#}
+            {#//         },#}
+            {#//         uploadProgress: function(event, position, total, percentComplete) {#}
+            {#//             var percentVal = percentComplete + '%';#}
+            {#//             bar.width(percentVal);#}
+            {#//             percent.html(percentVal);#}
+            {#//         },#}
+            {#//         complete: function(xhr) {#}
+            {#//             status.html(xhr.responseText);#}
+            {#//         }#}
+            {#//     });#}
+            {#// });#}
+
+
+        {#</script>#}
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    $.post("demo_test_post.asp",
+                        {
+                            name: "Donald Duck",
+                            city: "Duckburg"
+                        },
+                        function(data,status){
+                            alert("Data: " + data + "\nStatus: " + status);
+                        });
+                });
+            });
+        </script>
 
     {% endblock %}
 

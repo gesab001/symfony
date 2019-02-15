@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Sabbath{% endblock %}
+
+{% block body %}
+    <h1>Edit Sabbath</h1>
+
+    {{ include('sabbath/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('sabbath_index') }}">back to list</a>
+
+    {{ include('sabbath/_delete_form.html.twig') }}
+{% endblock %}

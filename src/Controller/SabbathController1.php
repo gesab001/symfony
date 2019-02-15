@@ -9,6 +9,7 @@
 
 // src/Controller/LuckyController.php
 namespace App\Controller;
+use App\Entity\Sabbath;
 use Aws\S3\Exception\S3Exception;
 use PhpParser\Error;
 use Symfony\Component\Form\AbstractType;
@@ -40,7 +41,7 @@ use Aws\S3\ObjectUploader;
 use App\Service\MessageGenerator;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Console\Helper\ProgressBar;
-class VideoController extends Controller
+class SabbathController1 extends Controller
 
 {
 
@@ -136,11 +137,11 @@ class VideoController extends Controller
     }
 
     /**
-     * @Route("/video", name="app_video")
+     * @Route("/sabbath", name="app_sabbath")
      */
 //    public function getTitles()
 //    {
-        public function getTitles(Request $request)
+        public function getSabbathStories(Request $request)
         {
 //        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
 //        if (!$titles) {
@@ -158,10 +159,10 @@ class VideoController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             // Get some repository of data, in our case we have an Appointments entity
-            $hymnsRepository = $em->getRepository(Videos::class);
+            $sabbathRepository = $em->getRepository(Sabbath::class);
 
             // Find all the data on the Appointments table, filter your query as you need
-            $allHymnsQuery = $hymnsRepository->createQueryBuilder('id')
+            $allSabbathQuery = $sabbathRepository->createQueryBuilder('id')
                 ->orderBy('id.id', 'DESC')
 
 //            ->where('p.status != :status')
@@ -174,7 +175,7 @@ class VideoController extends Controller
             // Paginate the results of the query
             $titles = $paginator->paginate(
             // Doctrine Query, not results
-                $allHymnsQuery,
+                $allSabbathQuery,
                 // Define the page parameter
                 $request->query->getInt('page', 1),
                 // Items per page
@@ -184,8 +185,8 @@ class VideoController extends Controller
             $user = $this->getUserProfile();
 
             // Render the twig view
-            return $this->render('video/video.html.twig', [
-                'videos' => $titles,
+            return $this->render('sabbath/sabbath.html.twig', [
+                'sabbathStories' => $titles,
                 'username' => $user
 
             ]);
