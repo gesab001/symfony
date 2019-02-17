@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EgwWritingsComplete{% endblock %}
+
+{% block body %}
+    <h1>EgwWritingsComplete</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ egw_writings_complete.id }}</td>
+            </tr>
+            <tr>
+                <th>Bookcode</th>
+                <td>{{ egw_writings_complete.bookcode }}</td>
+            </tr>
+            <tr>
+                <th>Page</th>
+                <td>{{ egw_writings_complete.page }}</td>
+            </tr>
+            <tr>
+                <th>Paragraph</th>
+                <td>{{ egw_writings_complete.paragraph }}</td>
+            </tr>
+            <tr>
+                <th>Word</th>
+                <td>{{ egw_writings_complete.word }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('egw_egw_writings_complete_index') }}">back to list</a>
+
+    <a href="{{ path('egw_egw_writings_complete_edit', {'id': egw_writings_complete.id}) }}">edit</a>
+
+    {{ include('egw_egw_writings_complete/_delete_form.html.twig') }}
+{% endblock %}

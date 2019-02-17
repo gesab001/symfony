@@ -11,11 +11,19 @@
             <ol>
             {% for result in results %}
 
-                <li>{{ result.WORD }} ({{ result.BOOKCODE }} {{ result.PAGE }}:{{ result.PARAGRAPH }})</li>
+                <li>{{ result.word }} ({{ result.bookcode }} {{ result.page }}:{{ result.paragraph }})</li>
 
             {%  endfor %}
             </ol>
+            {#{% set currentPage = result.page %}#}
+            {% set bookcode = results|last.bookcode %}
+            {% set lastpage = results|last.page%}
+            {% set nextpage = lastpage|number_format + 1 %}
+            {% set previouspage = lastpage|number_format - 1 %}
 
+            <a style="position: absolute; left: 25%"  href="{{ path('egw_read_chapter', {'book': bookcode, 'page': nextpage }) }}">p.{{ previouspage }}<<</a>
+            <span style="position: absolute; left: 50%" >p.{{ lastpage }}</span>
+            <a style="position: absolute; left: 75%" href="{{ path('egw_read_chapter', {'book': bookcode, 'page': nextpage }) }}">>>p.{{ nextpage }}</a>
 
 
 

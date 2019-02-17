@@ -59,6 +59,11 @@ class Books
      */
     private $bookmark;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $display_status;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Books
     public function setBookmark(?Da $bookmark): self
     {
         $this->bookmark = $bookmark;
+
+        return $this;
+    }
+
+    public function getDisplayStatus(): ?string
+    {
+        return $this->display_status;
+    }
+
+    public function setDisplayStatus(string $display_status): self
+    {
+        $this->display_status = $display_status;
 
         return $this;
     }

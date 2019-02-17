@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Da{% endblock %}
+
+{% block body %}
+    <h1>Edit Da</h1>
+
+    {{ include('egw_da/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('egw_da_index') }}">back to list</a>
+
+    {{ include('egw_da/_delete_form.html.twig') }}
+{% endblock %}

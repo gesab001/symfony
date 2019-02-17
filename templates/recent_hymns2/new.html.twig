@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New RecentHymns2{% endblock %}
+
+{% block body %}
+    <h1>Create new RecentHymns2</h1>
+
+    {{ include('recent_hymns2/_form.html.twig') }}
+
+    <a href="{{ path('recent_hymns2_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Hymns{% endblock %}
+
+{% block body %}
+    <h1>Edit Hymns</h1>
+
+    {{ include('hymns/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('hymns_index') }}">back to list</a>
+
+    {{ include('hymns/_delete_form.html.twig') }}
+{% endblock %}

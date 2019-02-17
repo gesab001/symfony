@@ -1,0 +1,34 @@
+
+    <iframe style="width:100%" src={{ path('egw_da_show') }}></iframe>
+    <h1>Da</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ da.id }}</td>
+            </tr>
+            <tr>
+                <th>Bookcode</th>
+                <td>{{ da.bookcode }}</td>
+            </tr>
+            <tr>
+                <th>Page</th>
+                <td>{{ da.page }}</td>
+            </tr>
+            <tr>
+                <th>Paragraph</th>
+                <td>{{ da.paragraph }}</td>
+            </tr>
+            <tr>
+                <th>Word</th>
+                <td>{{ da.word }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('egw_da_index') }}">back to list</a>
+
+    <a href="{{ path('egw_da_edit', {'id': da.id}) }}">edit</a>
+
+    {#{{ include('egw/da/_delete_form.html.twig') }}#}

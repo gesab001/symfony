@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Desire of Ages Index{% endblock %}
+
+{% block body %}
+    <h1>Desire of Ages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bookcode</th>
+                <th>Page</th>
+                <th>Paragraph</th>
+                <th>Word</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for da in das %}
+            <tr>
+                <td>{{ da.id }}</td>
+                <td>{{ da.bookcode }}</td>
+                <td>{{ da.page }}</td>
+                <td>{{ da.paragraph }}</td>
+                <td>{{ da.word }}</td>
+                <td>
+                    <a href="{{ path('egw_da_show', {'id': da.id}) }}">show</a>
+                    <a href="{{ path('egw_da_edit', {'id': da.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('egw_da_new') }}">Create new</a>
+{% endblock %}

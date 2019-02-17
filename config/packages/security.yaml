@@ -1,9 +1,9 @@
 security:
     encoders:
         App\Entity\User:
-            algorithm: argon2i
+            algorithm: bcrypt #argon2i
         App\Entity\User1:
-            algorithm: argon2i
+            algorithm: bcrypt #argon2i
 
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers

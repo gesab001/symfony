@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EgwWritingsComplete{% endblock %}
+
+{% block body %}
+    <h1>Create new EgwWritingsComplete</h1>
+
+    {{ include('egw_egw_writings_complete/_form.html.twig') }}
+
+    <a href="{{ path('egw_egw_writings_complete_index') }}">back to list</a>
+{% endblock %}

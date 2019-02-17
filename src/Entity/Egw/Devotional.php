@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Devotional
  *
- * @ORM\Table(name="devotional")
+ * @ORM\Table(name="EGWdevotional")
  * @ORM\Entity
  */
 class Devotional

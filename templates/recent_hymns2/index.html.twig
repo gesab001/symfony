@@ -1,0 +1,494 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets%}
+{{ parent() }}
+<style>
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+.button5 {background-color: #555555;} /* Black */
+
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th {
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+</style>
+{% endblock %}
+        {% block body %}
+
+
+            {#<div>#}
+            {#<br><br>#}
+            {#{% for hymn in hymns %}#}
+            {#<li><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}</a></li>#}
+            {#{%  endfor %}#}
+
+            {#</div>#}
+
+            <div class="container">
+                <div class="row">
+
+                    <!-- Article List -->
+
+                    <div class="col-sm-12 col-md-8">
+
+                        <!-- H1 Article -->
+                        <a class="main-article-link" href="#">
+                            <div class="main-article mb-5 pb-3">
+                                <img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">
+                                <h1 class="text-center mt-2">Seventh-day Adventist Hymnal</h1>
+                            </div>
+                        </a>
+                        <div class="navigation">
+                            {#{{ knp_pagination_render(hymns) }}#}
+
+
+
+                            <label>Quick Search: <input id="search" type="text"></label>
+                            <div>
+                                <span><button class="button3" onclick="location.href = {{ path('hymns_index') }};"  >View all</button></span>
+                                {#<span><button class="button3" onclick="location.href={{ path('hymns_new') }}">Create new hymn</button></span>#}
+                            </div>
+
+                        </div>
+                        <table id="hymns" class="table">
+                            <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Title</th>
+                                {#<th>Verses</th>#}
+                                <th>Last viewed</th>
+                                <th>Total views</th>
+                                {#<th>Id</th>#}
+
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for recent_hymns2 in recent_hymns2s %}
+                                <tr>
+                                    <td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.id }}</a></td>
+                                    <td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</a></td>
+                                    {#<td>{{ recent_hymns2.verses }}</td>#}
+                                    {% set now = "now"|date("D N F Y g:ia") %}
+
+                                    {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y g:ia") %}
+                                    {% set difference = date(now).diff(date(lastViewed)) %}
+                                    {% set leftDays = difference.days %}
+                                    {% if leftDays == 1 %}
+                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 day ago</td>
+                                    {% elseif leftDays == 7 %}
+                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 week ago</td>
+                                    {% elseif leftDays > 13 %}
+                                        {% set leftWeeks = difference.days/7 %}
+                                        {% set leftWeeks = leftWeeks|number_format %}
+
+
+                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftWeeks }} weeks ago</td>
+                                    {% else %}
+                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftDays }} days ago</td>
+                                    {% endif %}
+
+                                    <td>{{ recent_hymns2.popularity }}</td>
+                                    {#<td>{{ recent_hymns2.id }}</td>#}
+                                    <td>
+                                        {#<a href="{{ path('recent_hymns2_show', {'id': recent_hymns2.id}) }}">show</a>#}
+                                        <a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>
+                                        {{ include('recent_hymns2/_delete_form.html.twig') }}
+
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                        <table id="myTable">
+                            <tr>
+                                <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
+                                <th onclick="sortTablePopularity(0)">Number</th>
+                                <th onclick="sortTable(1)">Title</th>
+                                <th>Last viewed</th>
+                                <th id="popularity" onclick="sortTablePopularity(3)">Total views</th>
+                                {#<th>Id</th>#}
+
+                                <th>actions</th>
+                            </tr>
+
+                            {% for recent_hymns2 in recent_hymns2s %}
+                            <tr>
+                                <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.id }}</td>
+                                <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</td>
+                                {% set now = "now"|date("D N F Y g:ia") %}
+
+                                {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y g:ia") %}
+                                {% set difference = date(now).diff(date(lastViewed)) %}
+                                {% set leftDays = difference.days %}
+                                {% if leftDays == 1 %}
+                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 day ago</td>
+                                {% elseif leftDays == 7 %}
+                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 week ago</td>
+                                {% elseif leftDays > 13 %}
+                                    {% set leftWeeks = difference.days/7 %}
+                                    {% set leftWeeks = leftWeeks|number_format %}
+
+
+                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftWeeks }} weeks ago</td>
+                                {% else %}
+                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftDays }} days ago</td>
+                                {% endif %}
+                                <td>{{ recent_hymns2.popularity }}</td>
+                                {#<td>{{ recent_hymns2.id }}</td>#}
+                                <td>
+                                    {#<a href="{{ path('recent_hymns2_show', {'id': recent_hymns2.id}) }}">show</a>#}
+                                    <a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>
+                                    {{ include('recent_hymns2/_delete_form.html.twig') }}
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                    <!-- Right bar ad space -->
+
+
+                    <div class="col-sm-12 col-md-4 text-center">
+                        <div class="ad-space mx-auto mt-1 pb-2 pt-2">
+                            <img class="advertisement-img" src="{{ asset('images/threeangels2.jpg') }}">
+                            <p><span class="advertisement-text">New:</span> The Three Angels</p>
+                            {#"{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                            {#<input hidden class="form-control mr-sm-2" name="book" type="text" value="Rev" placeholder="Search KJV Bible" aria-label="Search">#}
+                            {#<input hidden class="form-control mr-sm-2" name="chapter" type="text" value="14" placeholder="Search KJV Bible" aria-label="Search">#}
+
+                            {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+                            {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+                            {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+                            <form method="GET" action="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">
+                                <input type="submit" value="Read now!!!">
+                            </form>
+                            {#<a href="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">Read now</a>#}
+                            {#</form>#}
+                        </div>
+
+                        <div class="quote-space pb-2 pt-2 px-5">
+                            <h3 class="text-center pb-3">Inspiring Quotes</h3>
+                            <p><i class="fa fa-comment"></i> "Therefore will I give thanks unto thee, O LORD, among the heathen, and sing praises unto thy name. (Psalms 18:49)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>King David</a></p>
+
+                            <p class="pt-4"><i class="fa fa-comment"></i> "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord. (Col 3:16)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>Paul the Apostle</a></p>
+
+                            <p class="pt-4"><i class="fa fa-comment"></i> "Then sang Moses and the children of Israel this song unto the LORD, and spake, saying, I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea. (Exodus 15:1)"<br>— <a href="{{ path('read_chapter', {'book': 'Exodus', 'chapter': '15'}) }}">Moses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{  asset('js/hymn_show.js') }}"></script>
+    <script src="js/jquery.tablesorter.min.js"></script>
+    <script>
+        $("p").on("click", function()
+            {
+                $("myTable").tablesorter({
+                    sortList: [[0,0]],
+                    headers: {3:{sorter:false}}
+                });
+            }
+        );
+    </script>
+    <script>
+        function sortTablePopularity(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            //Set the sorting direction to ascending:
+            dir = "asc";
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    /*check if the two rows should switch place,
+                    based on the direction, asc or desc:*/
+                    if (dir == "asc") {
+                        if (Number(x.innerHTML) > Number(y.innerHTML))  {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch= true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (Number(x.innerHTML) < Number(y.innerHTML))  {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    //Each time a switch is done, increase this count by 1:
+                    switchcount ++;
+                } else {
+                    /*If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again.*/
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            //Set the sorting direction to ascending:
+            dir = "asc";
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    /*check if the two rows should switch place,
+                    based on the direction, asc or desc:*/
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch= true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    //Each time a switch is done, increase this count by 1:
+                    switchcount ++;
+                } else {
+                    /*If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again.*/
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+
+{%  endblock %}
+
+
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Seventh-day Adventist Hymnal{% endblock %}#}
+
+{#{% block body %}#}
+    {#<h1>Hymns index</h1>#}
+         {#<div class="container">#}
+                {#<div class="row">#}
+
+                    {#<!-- Article List -->#}
+
+                    {#<div class="col-sm-12 col-md-8">#}
+
+                        {#<!-- H1 Article -->#}
+                        {#<a class="main-article-link" href="#">#}
+                            {#<div class="main-article mb-5 pb-3">#}
+                                {#<img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">#}
+                                {#<h1 class="text-center mt-2">Seventh-day Adventist Hymnal</h1>#}
+                            {#</div>#}
+                        {#</a>#}
+                        {#<div class="navigation">#}
+                         {#<a href="{{ path('hymns_new') }}">Create new</a>#}
+                                                 {#<label>Quick Search: <input id="search" type="text"></label>#}
+                                                    {#<table id="hymns" class="table">#}
+                                                        {#<thead>#}
+                                                            {#<tr>#}
+                                                                {#<th>Id</th>#}
+                                                                {#<th>Number</th>#}
+                                                                {#<th>Title</th>#}
+                                                                {#<th>Verses</th>#}
+                                                                {#<th>actions</th>#}
+                                                            {#</tr>#}
+                                                        {#</thead>#}
+                                                        {#<tbody>#}
+                                                        {#{% for hymn in hymns %}#}
+                                                            {#<tr>#}
+                                                                {#<td>{{ hymn.id }}</td>#}
+                                                                {#<td>{{ hymn.number }}</td>#}
+                                                                {#<td><a href="{{ path('hymns_show', {'id': hymn.id}) }}">{{ hymn.title }}</a></td>#}
+                                                                {#<td>{{ hymn.verses }}</td>#}
+                                                                {#<td>#}
+                                                                    {#<a href="{{ path('hymns_show', {'id': hymn.id}) }}">show</a>#}
+                                                                    {#<a href="{{ path('hymns_edit', {'id': hymn.id}) }}">edit</a>#}
+                                                                {#</td>#}
+                                                            {#</tr>#}
+                                                        {#{% else %}#}
+                                                            {#<tr>#}
+                                                                {#<td colspan="5">no records found</td>#}
+                                                            {#</tr>#}
+                                                        {#{% endfor %}#}
+                                                        {#</tbody>#}
+                                                    {#</table>#}
+
+                        {#</div>#}
+
+                  {#<div class="col-sm-12 col-md-4 text-center">#}
+                        {#<div class="ad-space mx-auto mt-1 pb-2 pt-2">#}
+                            {#<img class="advertisement-img" src="{{ asset('images/threeangels2.jpg') }}">#}
+                            {#<p><span class="advertisement-text">New:</span> The Three Angels</p>#}
+                            {#"{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                {#<input hidden class="form-control mr-sm-2" name="book" type="text" value="Rev" placeholder="Search KJV Bible" aria-label="Search">#}
+                                {#<input hidden class="form-control mr-sm-2" name="chapter" type="text" value="14" placeholder="Search KJV Bible" aria-label="Search">#}
+
+                                {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+                            {#<form method="GET" action="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                {#<input type="submit" value="Read now!!!">#}
+                            {#</form>#}
+                            {#<a href="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">Read now</a>#}
+                            {#</form>#}
+                        {#</div>#}
+
+                        {#<div class="quote-space pb-2 pt-2 px-5">#}
+                            {#<h3 class="text-center pb-3">Inspiring Quotes</h3>#}
+                            {#<p><i class="fa fa-comment"></i> "Therefore will I give thanks unto thee, O LORD, among the heathen, and sing praises unto thy name. (Psalms 18:49)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>King David</a></p>#}
+
+                            {#<p class="pt-4"><i class="fa fa-comment"></i> "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord. (Col 3:16)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>Paul the Apostle</a></p>#}
+
+                            {#<p class="pt-4"><i class="fa fa-comment"></i> "Then sang Moses and the children of Israel this song unto the LORD, and spake, saying, I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea. (Exodus 15:1)"<br>— <a href="{{ path('read_chapter', {'book': 'Exodus', 'chapter': '15'}) }}">Moses</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+{#{% endblock %}#}
+
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+    {#<script src="{{  asset('js/hymn_show.js') }}"></script>#}
+{#{%  endblock %}#}
+
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}RecentHymns2 index{% endblock %}#}
+
+{#{% block body %}#}
+    {#<h1>RecentHymns2 index</h1>#}
+
+    {#<table class="table">#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Number</th>#}
+                {#<th>Title</th>#}
+                {#<th>Verses</th>#}
+                {#<th>Last viewed</th>#}
+                {#<th>Total views</th>#}
+                {#<th>Id</th>#}
+                {#<th>actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for recent_hymns2 in recent_hymns2s %}#}
+            {#<tr>#}
+                {#<td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.id }}</a></td>#}
+                {#<td><a href="{{ path('recent_hymns2_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</a></td>#}
+                {#<td>{{ recent_hymns2.verses }}</td>#}
+                {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("F jS \\a\\t g:ia") : '' }}</td>#}
+                {#<td>{{ recent_hymns2.popularity }}</td>#}
+                {#<td>{{ recent_hymns2.id }}</td>#}
+                {#<td>#}
+                    {#<a href="{{ path('recent_hymns2_show', {'id': recent_hymns2.id}) }}">show</a>#}
+                    {#<a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="7">no records found</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<a href="{{ path('recent_hymns2_new') }}">Create new</a>#}
+{#{% endblock %}#}
+
+

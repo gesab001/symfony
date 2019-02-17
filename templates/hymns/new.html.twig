@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Hymns{% endblock %}
+
+{% block body %}
+    <h1>Create new Hymns</h1>
+
+    {{ include('hymns/_form.html.twig') }}
+
+    <a href="{{ path('hymns_index') }}">back to list</a>
+{% endblock %}

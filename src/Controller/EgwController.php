@@ -10,6 +10,8 @@
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
+use App\Controller\Egw\DaController;
+use App\Entity\Egw\Da;
 use App\Entity\Egw\EgwWritingsComplete;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,6 +23,7 @@ use App\Entity\Kjv;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use App\Controller\UserController;
+use App\Controller\EGWBooksController;
 
 
 class EgwController extends Controller
@@ -50,15 +53,17 @@ class EgwController extends Controller
     }
 
     /**
-     * @Route("/egw")
+     * @Route("/today")
      */
-    public function bible()
+    public function egwToday()
     {
-        return new Response('in the beginning God created the heaven and the earth');
+        $da = new DaController();
+        $daBook = $da->showTodayParagraph();
+        return $this->render('today/today.html.twig', ['daBook' => $daBook]);
     }
 
 function getCurrentID(){
-   $totalVerses = 31102;
+   $totalVerses = 2590;
    date_default_timezone_set("Pacific/Auckland");
    $originalDate = strtotime("2018-06-23 14:45:00");
    $dateToday = date("Y-m-d H:i");
@@ -70,39 +75,66 @@ function getCurrentID(){
    }
    return $id;
 }
-
-     /**
-      * @Route("/", name="app_homepage")
-      */
-
-    public function index()
+    /**
+     * @Route("/today", name="today_show")
+     *
+     */
+    public function showToday(Request $request)
     {
         $id = $this->getCurrentID();
-        $kjv = $this->getDoctrine()
-        ->getRepository(Kjv::class)
-        ->find($id);
+        $da = $this->getDoctrine()
+            ->getRepository(Da::class, 'egw')
+            ->find($id);
 
-        if (!$kjv) {
+        if (!$da) {
             throw $this->createNotFoundException(
                 'No verse Found for id ' . $id
             );
         }
 
 //        $userprofile = new UserController();
-        $user = $this->getUserProfile();
-        $word = $kjv->getWord();
-        $book = $kjv->getBook();
-        $chapter = $kjv->getChapter();
-        $verse = $kjv->getVerse();
+//        $user = $this->getUserProfile();
+//        $word = $kjv->getWord();
+//        $book = $kjv->getBook();
+//        $chapter = $kjv->getChapter();
+//        $verse = $kjv->getVerse();
         //$reference = "(" . $book . " " . $chapter . ":" . $verse . ")";
-        return $this->render('bible/word.html.twig', [
-            'word' => $word,
-            'book' => $book,
-            'chapter' => $chapter,
-            'verse' => $verse,
-            'username' => $user
+        $da = $this->showTodayParagraph();
+        return $this->render('today/today.html.twig', [
+            'da' => $da,
+
 
         ]);
+//        return $this->render('to.html.twig', [
+//            'da' => $da,
+//        ]);
+    }
+
+
+    public function showTodayParagraph()
+    {
+        $id = $this->getCurrentID();
+        $da = $this->getDoctrine()
+            ->getRepository(Da::class, 'egw')
+            ->find($id);
+
+        if (!$da) {
+            throw $this->createNotFoundException(
+                'No verse Found for id ' . $id
+            );
+        }
+
+//        $userprofile = new UserController();
+//        $user = $this->getUserProfile();
+//        $word = $kjv->getWord();
+//        $book = $kjv->getBook();
+//        $chapter = $kjv->getChapter();
+//        $verse = $kjv->getVerse();
+        //$reference = "(" . $book . " " . $chapter . ":" . $verse . ")";
+        return $da;
+//        return $this->render('egw/da/show.html.twig', [
+//            'da' => $da,
+//        ]);
     }
 
     /**
@@ -177,6 +209,8 @@ function getCurrentID(){
 //            array('hymns' => $titles)
 //        );
 //        $book = $request->get("book");
+//        $page = $request->get("page");
+
 //        $chapter = $request->get("chapter");
 //        dump($book, $chapter, $this);
 
@@ -188,10 +222,10 @@ function getCurrentID(){
 
         // Find all the data on the Appointments table, filter your query as you need
         $allHymnsQuery = $hymnsRepository->createQueryBuilder('c')
-            ->where('c.bookcode LIKE :BOOKCODE')
-            ->andWhere('c.page = :PAGE')
-            ->setParameter('BOOKCODE', $book)
-            ->setParameter('PAGE', $page)
+            ->where('c.bookcode LIKE :bookcode')
+            ->andWhere('c.page = :page')
+            ->setParameter('bookcode', $book)
+            ->setParameter('page', $page)
             ->getQuery();
 
         /* @var $paginator \Knp\Component\Pager\Paginator */
@@ -215,6 +249,60 @@ function getCurrentID(){
             'username' => $user
         ]);
     }
+//
+//    /**
+//     * @Route("/egw/{book}", name="egw_read_chapter")
+//     */
+//    public function egw_readBook(Request $request, $book)
+//    {
+////        $titles = $this->getDoctrine()->getRepository(Hymns::class)->findAll();
+////        if (!$titles) {
+////            throw $this->createNotFoundException(
+////                'No titles found'
+////            );
+////        }
+////
+////
+////        return $this->render('hymn/hymn.html.twig',
+////            array('hymns' => $titles)
+////        );
+//        $book = $request->get("book");
+////        $chapter = $request->get("chapter");
+////        dump($book, $chapter, $this);
+//
+//        // Retrieve the entity manager of Doctrine
+//        $em = $this->getDoctrine()->getManager('egw');
+//
+//        // Get some repository of data, in our case we have an Appointments entity
+//        $hymnsRepository = $em->getRepository(EgwWritingsComplete::class, 'egw');
+//
+//        // Find all the data on the Appointments table, filter your query as you need
+//        $allHymnsQuery = $hymnsRepository->createQueryBuilder('c')
+//            ->where('c.bookcode = :bookcode')
+//            ->setParameter('bookcode', $book)
+//            ->getQuery();
+//
+//        /* @var $paginator \Knp\Component\Pager\Paginator */
+//        $paginator  = $this->get('knp_paginator');
+//
+//        // Paginate the results of the query
+//        $results = $paginator->paginate(
+//        // Doctrine Query, not results
+//            $allHymnsQuery,
+//            // Define the page parameter
+//            $request->query->getInt('page', 1),
+//            // Items per page
+//            100
+//        );
+//
+//        $user = $this->getUserProfile();
+//
+//        // Render the twig view
+//        return $this->render('egw/chapterReadingEgw.html.twig', [
+//            'results' => $results,
+//            'username' => $user
+//        ]);
+//    }
 }
 
 ?>

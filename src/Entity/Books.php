@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Books
  *
- * @ORM\Table(name="books")
+ * @ORM\Table(name="biblebooks")
  * @ORM\Entity
  */
 class Books

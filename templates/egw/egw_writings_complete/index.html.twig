@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EgwWritingsComplete index{% endblock %}
+
+{% block body %}
+    <h1>EgwWritingsComplete index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bookcode</th>
+                <th>Page</th>
+                <th>Paragraph</th>
+                <th>Word</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for egw_writings_complete in egw_writings_completes %}
+            <tr>
+                <td>{{ egw_writings_complete.id }}</td>
+                <td>{{ egw_writings_complete.bookcode }}</td>
+                <td>{{ egw_writings_complete.page }}</td>
+                <td>{{ egw_writings_complete.paragraph }}</td>
+                <td>{{ egw_writings_complete.word }}</td>
+                <td>
+                    <a href="{{ path('egw_egw_writings_complete_show', {'id': egw_writings_complete.id}) }}">show</a>
+                    <a href="{{ path('egw_egw_writings_complete_edit', {'id': egw_writings_complete.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('egw_egw_writings_complete_new') }}">Create new</a>
+{% endblock %}

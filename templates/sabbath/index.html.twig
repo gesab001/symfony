@@ -24,10 +24,22 @@
                 {#<td><img style="width:30%" src="https://s3-ap-southeast-2.amazonaws.com/adventistsermonvideos/sabbath/{{sabbath.image}}"></td>#}
                 <td>{{ sabbath.biblereference }}</td>
                 {#<td>{{ sabbath.word }}</td>#}
-                <td>
-                    <a href="{{ path('sabbath_show', {'id': sabbath.id}) }}">show</a>
-                    <a href="{{ path('sabbath_edit', {'id': sabbath.id}) }}">edit</a>
-                </td>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                    <td>
+                        <a href="{{ path('sabbath_show', {'id': sabbath.id}) }}">show</a>
+                        <a href="{{ path('sabbath_edit', {'id': sabbath.id}) }}">edit</a>
+                    </td>
+
+
+
+
+                {% else %}
+                    <td>
+                        <a  href={{ path('app_login') }}>Sign In to Edit</a>
+                    </td>
+                {% endif %}
+
             </tr>
         {% else %}
             <tr>
@@ -37,5 +49,14 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sabbath_new') }}">Create new</a>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+        <a href="{{ path('sabbath_new') }}">Create new</a>
+
+    {% else %}
+        <td>
+            <a  href={{ path('app_login') }}>Sign in to add a post</a>
+        </td>
+    {% endif %}
+
 {% endblock %}

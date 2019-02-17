@@ -1,0 +1,231 @@
+
+{% extends 'base.html.twig' %}
+{% block stylesheets%}
+    {{ parent() }}
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button2 {background-color: #008CBA;} /* Blue */
+        .button3 {background-color: #f44336;} /* Red */
+        .button4 {background-color: #e7e7e7; color: black;} /* Gray */
+        .button5 {background-color: #555555;} /* Black */
+    </style>
+{% endblock %}
+
+        {% block body %}
+
+
+            {#<div>#}
+                {#<br><br>#}
+                {#{% for hymn in hymns %}#}
+                    {#<li><a href="hymn/number/{{ hymn.NUMBER}}/title/{{ hymn.TITLE }}" js-open-hymn open-hymn>{{ hymn.NUMBER }}. {{ hymn.TITLE }}</a></li>#}
+                {#{%  endfor %}#}
+
+            {#</div>#}
+
+            <div class="container">
+                <div class="row">
+
+                    <!-- Article List -->
+
+                    <div class="col-sm-12 col-md-8">
+
+                        <!-- H1 Article -->
+                        <a class="main-article-link" href="#">
+                            <div class="main-article mb-5 pb-3">
+                                <img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">
+                                <h1 class="text-center mt-2">Seventh-day Adventist Hymnal</h1>
+                            </div>
+                        </a>
+                        <div class="navigation">
+                             {#{{ knp_pagination_render(hymns) }}#}
+
+                            <label>Quick Search: <input id="search" type="text"></label>
+                            <div>
+                                <a href="{{ path('recent_hymns2_index') }}">Recently viewed</a>
+
+                            </div>
+
+
+
+                        </div>
+                        <table id="hymns" class="table">
+                        <thead>
+                        <tr>
+                        {#<th>Id</th>#}
+                        <th>Number</th>
+                        <th>Title</th>
+                        {#<th>Verses</th>#}
+                        <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for hymn in hymns %}
+                        <tr>
+                        {#<td>{{ hymn.id }}</td>#}
+                        <td>{{ hymn.number }}</td>
+                        <td><a href="{{ path('hymns_show', {'id': hymn.id}) }}">{{ hymn.title }}</a></td>
+                        {#<td>{{ hymn.verses }}</td>#}
+                        <td>
+                        <a href="{{ path('hymns_show', {'id': hymn.id}) }}">show</a>
+                        <a href="{{ path('hymns_edit', {'id': hymn.id}) }}">edit</a>
+                        </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                        <td colspan="5">no records found</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        </table>
+
+                    </div>
+
+                    <!-- Right bar ad space -->
+
+
+                    <div class="col-sm-12 col-md-4 text-center">
+                        <div class="ad-space mx-auto mt-1 pb-2 pt-2">
+                            <img class="advertisement-img" src="{{ asset('images/threeangels2.jpg') }}">
+                            <p><span class="advertisement-text">New:</span> The Three Angels</p>
+                            {#"{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                {#<input hidden class="form-control mr-sm-2" name="book" type="text" value="Rev" placeholder="Search KJV Bible" aria-label="Search">#}
+                                {#<input hidden class="form-control mr-sm-2" name="chapter" type="text" value="14" placeholder="Search KJV Bible" aria-label="Search">#}
+
+                                {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+                            <form method="GET" action="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">
+                                <input type="submit" value="Read now!!!">
+                            </form>
+                            {#<a href="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">Read now</a>#}
+                            {#</form>#}
+                        </div>
+
+                        <div class="quote-space pb-2 pt-2 px-5">
+                            <h3 class="text-center pb-3">Inspiring Quotes</h3>
+                            <p><i class="fa fa-comment"></i> "Therefore will I give thanks unto thee, O LORD, among the heathen, and sing praises unto thy name. (Psalms 18:49)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>King David</a></p>
+
+                            <p class="pt-4"><i class="fa fa-comment"></i> "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord. (Col 3:16)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>Paul the Apostle</a></p>
+
+                            <p class="pt-4"><i class="fa fa-comment"></i> "Then sang Moses and the children of Israel this song unto the LORD, and spake, saying, I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea. (Exodus 15:1)"<br>— <a href="{{ path('read_chapter', {'book': 'Exodus', 'chapter': '15'}) }}">Moses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        {% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+        <script src="{{  asset('js/hymn_show.js') }}"></script>
+{%  endblock %}
+
+
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Seventh-day Adventist Hymnal{% endblock %}#}
+
+{#{% block body %}#}
+    {#<h1>Hymns index</h1>#}
+         {#<div class="container">#}
+                {#<div class="row">#}
+
+                    {#<!-- Article List -->#}
+
+                    {#<div class="col-sm-12 col-md-8">#}
+
+                        {#<!-- H1 Article -->#}
+                        {#<a class="main-article-link" href="#">#}
+                            {#<div class="main-article mb-5 pb-3">#}
+                                {#<img src="{{ asset('images/hymn_flower.jpg') }}" alt="meteor shower">#}
+                                {#<h1 class="text-center mt-2">Seventh-day Adventist Hymnal</h1>#}
+                            {#</div>#}
+                        {#</a>#}
+                        {#<div class="navigation">#}
+                         {#<a href="{{ path('hymns_new') }}">Create new</a>#}
+                                                 {#<label>Quick Search: <input id="search" type="text"></label>#}
+                                                    {#<table id="hymns" class="table">#}
+                                                        {#<thead>#}
+                                                            {#<tr>#}
+                                                                {#<th>Id</th>#}
+                                                                {#<th>Number</th>#}
+                                                                {#<th>Title</th>#}
+                                                                {#<th>Verses</th>#}
+                                                                {#<th>actions</th>#}
+                                                            {#</tr>#}
+                                                        {#</thead>#}
+                                                        {#<tbody>#}
+                                                        {#{% for hymn in hymns %}#}
+                                                            {#<tr>#}
+                                                                {#<td>{{ hymn.id }}</td>#}
+                                                                {#<td>{{ hymn.number }}</td>#}
+                                                                {#<td><a href="{{ path('hymns_show', {'id': hymn.id}) }}">{{ hymn.title }}</a></td>#}
+                                                                {#<td>{{ hymn.verses }}</td>#}
+                                                                {#<td>#}
+                                                                    {#<a href="{{ path('hymns_show', {'id': hymn.id}) }}">show</a>#}
+                                                                    {#<a href="{{ path('hymns_edit', {'id': hymn.id}) }}">edit</a>#}
+                                                                {#</td>#}
+                                                            {#</tr>#}
+                                                        {#{% else %}#}
+                                                            {#<tr>#}
+                                                                {#<td colspan="5">no records found</td>#}
+                                                            {#</tr>#}
+                                                        {#{% endfor %}#}
+                                                        {#</tbody>#}
+                                                    {#</table>#}
+
+                        {#</div>#}
+
+                  {#<div class="col-sm-12 col-md-4 text-center">#}
+                        {#<div class="ad-space mx-auto mt-1 pb-2 pt-2">#}
+                            {#<img class="advertisement-img" src="{{ asset('images/threeangels2.jpg') }}">#}
+                            {#<p><span class="advertisement-text">New:</span> The Three Angels</p>#}
+                            {#"{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                {#<input hidden class="form-control mr-sm-2" name="book" type="text" value="Rev" placeholder="Search KJV Bible" aria-label="Search">#}
+                                {#<input hidden class="form-control mr-sm-2" name="chapter" type="text" value="14" placeholder="Search KJV Bible" aria-label="Search">#}
+
+                                {#<input class="form-control mr-sm-2" type="radio" name="bible" value="bible">KJV Bible<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="hymn" value="hymn"> Hymns<br>#}
+                                {#<input class="form-control mr-sm-2" type="radio" name="video" value="video"> Videos<br>#}
+                            {#<form method="GET" action="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">#}
+                                {#<input type="submit" value="Read now!!!">#}
+                            {#</form>#}
+                            {#<a href="{{ path('read_chapter', {'book': 'Rev', 'chapter': '14'}) }}">Read now</a>#}
+                            {#</form>#}
+                        {#</div>#}
+
+                        {#<div class="quote-space pb-2 pt-2 px-5">#}
+                            {#<h3 class="text-center pb-3">Inspiring Quotes</h3>#}
+                            {#<p><i class="fa fa-comment"></i> "Therefore will I give thanks unto thee, O LORD, among the heathen, and sing praises unto thy name. (Psalms 18:49)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>King David</a></p>#}
+
+                            {#<p class="pt-4"><i class="fa fa-comment"></i> "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord. (Col 3:16)" <br>— <a href={{ path('read_chapter', {'book': 'Psalms', 'chapter': '18'}) }}>Paul the Apostle</a></p>#}
+
+                            {#<p class="pt-4"><i class="fa fa-comment"></i> "Then sang Moses and the children of Israel this song unto the LORD, and spake, saying, I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea. (Exodus 15:1)"<br>— <a href="{{ path('read_chapter', {'book': 'Exodus', 'chapter': '15'}) }}">Moses</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+{#{% endblock %}#}
+
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+    {#<script src="{{  asset('js/hymn_show.js') }}"></script>#}
+{#{%  endblock %}#}

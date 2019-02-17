@@ -29,7 +29,7 @@
                                         {% for video in videos %}
                                                 <div class="article-container my-1">
                                                         <a href="video/{{ video.id }}/{{ video.title }}/{{video.preacher}}">
-                                                                <img class="article-img" src="https://s3-ap-southeast-2.amazonaws.com/adventistsermonvideos/{{video.thumbnail}}">
+                                                                <img class="article-img" src="https://s3-ap-southeast-2.amazonaws.com/adventistsermonvideos/{{ video.thumbnail }}">
                                                                 <div class="article-title d-inline-block pl-3 align-middle">
                                                                         <span>{{ video.title }}</span>
                                                                         <br>
