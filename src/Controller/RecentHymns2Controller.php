@@ -19,9 +19,10 @@ class RecentHymns2Controller extends AbstractController
      */
     public function index(): Response
     {
+
         $recentHymns2s = $this->getDoctrine()
             ->getRepository(RecentHymns2::class)
-            ->findAll();
+            ->findBy(array(), array('addedDate'=> 'DESC'));
 
         return $this->render('recent_hymns2/index.html.twig', [
             'recent_hymns2s' => $recentHymns2s,

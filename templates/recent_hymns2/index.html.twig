@@ -79,61 +79,61 @@ tr:nth-child(even) {
                             </div>
 
                         </div>
-                        <table id="hymns" class="table">
-                            <thead>
-                            <tr>
-                                <th>Number</th>
-                                <th>Title</th>
+                        {#<table id="hymns" class="table">#}
+                            {#<thead>#}
+                            {#<tr>#}
+                                {#<th>Number</th>#}
+                                {#<th>Title</th>#}
                                 {#<th>Verses</th>#}
-                                <th>Last viewed</th>
-                                <th>Total views</th>
+                                {#<th>Last viewed</th>#}
+                                {#<th>Total views</th>#}
                                 {#<th>Id</th>#}
 
-                                <th>actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                                {#<th>actions</th>#}
+                            {#</tr>#}
+                            {#</thead>#}
+                            {#<tbody>#}
 
-                            {% for recent_hymns2 in recent_hymns2s %}
-                                <tr>
-                                    <td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.id }}</a></td>
-                                    <td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</a></td>
+                            {#{% for recent_hymns2 in recent_hymns2s %}#}
+                                {#<tr>#}
+                                    {#<td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.id }}</a></td>#}
+                                    {#<td><a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</a></td>#}
                                     {#<td>{{ recent_hymns2.verses }}</td>#}
-                                    {% set now = "now"|date("D N F Y g:ia") %}
+                                    {#{% set now = "now"|date("D N F Y g:ia") %}#}
 
-                                    {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y g:ia") %}
-                                    {% set difference = date(now).diff(date(lastViewed)) %}
-                                    {% set leftDays = difference.days %}
-                                    {% if leftDays == 1 %}
-                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 day ago</td>
-                                    {% elseif leftDays == 7 %}
-                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 week ago</td>
-                                    {% elseif leftDays > 13 %}
-                                        {% set leftWeeks = difference.days/7 %}
-                                        {% set leftWeeks = leftWeeks|number_format %}
+                                    {#{% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y g:ia") %}#}
+                                    {#{% set difference = date(now).diff(date(lastViewed)) %}#}
+                                    {#{% set leftDays = difference.days %}#}
+                                    {#{% if leftDays == 1 %}#}
+                                        {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 day ago</td>#}
+                                    {#{% elseif leftDays == 7 %}#}
+                                        {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 week ago</td>#}
+                                    {#{% elseif leftDays > 13 %}#}
+                                        {#{% set leftWeeks = difference.days/7 %}#}
+                                        {#{% set leftWeeks = leftWeeks|number_format %}#}
 
 
-                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftWeeks }} weeks ago</td>
-                                    {% else %}
-                                        <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftDays }} days ago</td>
-                                    {% endif %}
+                                        {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftWeeks }} weeks ago</td>#}
+                                    {#{% else %}#}
+                                        {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftDays }} days ago</td>#}
+                                    {#{% endif %}#}
 
-                                    <td>{{ recent_hymns2.popularity }}</td>
+                                    {#<td>{{ recent_hymns2.popularity }}</td>#}
                                     {#<td>{{ recent_hymns2.id }}</td>#}
-                                    <td>
-                                        {#<a href="{{ path('recent_hymns2_show', {'id': recent_hymns2.id}) }}">show</a>#}
-                                        <a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>
-                                        {{ include('recent_hymns2/_delete_form.html.twig') }}
+                                    {#<td>#}
+                                        {#<a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">show</a>#}
+                                        {#<a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>#}
+                                        {#{{ include('recent_hymns2/_delete_form.html.twig') }}#}
 
-                                    </td>
-                                </tr>
-                            {% else %}
-                                <tr>
-                                    <td colspan="7">no records found</td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
+                                    {#</td>#}
+                                {#</tr>#}
+                            {#{% else %}#}
+                                {#<tr>#}
+                                    {#<td colspan="7">no records found</td>#}
+                                {#</tr>#}
+                            {#{% endfor %}#}
+                            {#</tbody>#}
+                        {#</table>#}
 
 
                         <table id="myTable">
@@ -150,30 +150,31 @@ tr:nth-child(even) {
 
                             {% for recent_hymns2 in recent_hymns2s %}
                             <tr>
-                                <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.id }}</td>
+                                <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.number }}</td>
                                 <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</td>
-                                {% set now = "now"|date("D N F Y g:ia") %}
+                                {% set now = "now"|date("D j F Y g:ia") %}
 
-                                {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y g:ia") %}
+                                {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
                                 {% set difference = date(now).diff(date(lastViewed)) %}
                                 {% set leftDays = difference.days %}
-                                {% if leftDays == 1 %}
-                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 day ago</td>
-                                {% elseif leftDays == 7 %}
-                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, 1 week ago</td>
-                                {% elseif leftDays > 13 %}
-                                    {% set leftWeeks = difference.days/7 %}
-                                    {% set leftWeeks = leftWeeks|number_format %}
+                                <td>{{ lastViewed }}, {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|ago : ''}}</td>
+                                {#{% if leftDays == 1 %}#}
+                                    {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D j F Y \\a\\t g:ia") : '' }}, 1 day ago</td>#}
+                                {#{% elseif leftDays == 7 %}#}
+                                    {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D j F Y \\a\\t g:ia") : '' }}, 1 week ago</td>#}
+                                {#{% elseif leftDays > 13 %}#}
+                                    {#{% set leftWeeks = difference.days/7 %}#}
+                                    {#{% set leftWeeks = leftWeeks|number_format %}#}
 
 
-                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftWeeks }} weeks ago</td>
-                                {% else %}
-                                    <td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D N F Y \\a\\t g:ia") : '' }}, {{ leftDays }} days ago</td>
-                                {% endif %}
+                                    {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D j F Y \\a\\t g:ia") : '' }}, {{ leftWeeks }} weeks ago</td>#}
+                                {#{% else %}#}
+                                    {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D j F Y \\a\\t g:ia") : '' }}, {{ leftDays }} days ago</td>#}
+                                {#{% endif %}#}
                                 <td>{{ recent_hymns2.popularity }}</td>
                                 {#<td>{{ recent_hymns2.id }}</td>#}
                                 <td>
-                                    {#<a href="{{ path('recent_hymns2_show', {'id': recent_hymns2.id}) }}">show</a>#}
+                                    <a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">show</a>
                                     <a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>
                                     {{ include('recent_hymns2/_delete_form.html.twig') }}
 
@@ -225,9 +226,11 @@ tr:nth-child(even) {
 {% block javascripts %}
     {{ parent() }}
     <script src="{{  asset('js/hymn_show.js') }}"></script>
+    <script src="js/jquery.js"></script>
+
     <script src="js/jquery.tablesorter.min.js"></script>
     <script>
-        $("p").on("click", function()
+        $("#popularity").on("click", function()
             {
                 $("myTable").tablesorter({
                     sortList: [[0,0]],

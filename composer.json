@@ -9,6 +9,7 @@
         "aws/aws-sdk-php-symfony": "~2.0",
         "knplabs/knp-gaufrette-bundle": "^0.5.3",
         "knplabs/knp-paginator-bundle": "^2.8",
+        "knplabs/knp-time-bundle": "^1.9",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony-cmf/core-bundle": "^2.1",
         "symfony-cmf/menu-bundle": "^2.2",
@@ -32,6 +33,7 @@
         "symfony/web-link": "4.2.*",
         "symfony/webpack-encore-bundle": "^1.0",
         "symfony/yaml": "4.2.*",
+        "twig/extensions": "^1.5",
         "twig/twig": "^2.0",
         "vich/uploader-bundle": "^1.8"
     },
