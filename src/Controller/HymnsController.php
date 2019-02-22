@@ -82,13 +82,13 @@ class HymnsController extends AbstractController
     {
         $id =  $request->get('id');
         $number =  $request->get('number');
-        $this->updateHymn($id);
+        $this->updateHymn($id, $number);
         $entityManager = $this->getDoctrine()->getManager();
         $hymn = $entityManager->getRepository(Hymns::class)->find($number);
 
         if (!$hymn) {
             throw $this->createNotFoundException(
-                'No hymn found for id '.$number
+                'No hymn found for number '.$number
             );
         }
         $user = $this->getUserProfile();
@@ -98,14 +98,16 @@ class HymnsController extends AbstractController
         ]);
     }
 
-    public function updateHymn($id){
+    public function updateHymn($id, $number){
         $entityManager = $this->getDoctrine()->getManager();
         $hymnToUpdate = $entityManager->getRepository(RecentHymns2::class)->find($id);
 
         if (!$hymnToUpdate) {
-            throw $this->createNotFoundException(
-                'No hymn found for id '.$id
-            );
+//            throw $this->createNotFoundException(
+//                'No hymn found for number '.$number
+//
+//            );
+            $this->addRecentHymn($number);
         }
 
         $currentDate = date('Y-m-d H:i:s');
@@ -114,6 +116,39 @@ class HymnsController extends AbstractController
         $hymnToUpdate->setPopularity($popularity);
         $hymnToUpdate->setAddedDate($date);
         $entityManager->flush();
+    }
+
+    public function addRecentHymn($id){
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $hymn = $entityManager->getRepository(Hymns::class)->find($id);
+
+        if (!$hymn) {
+            throw $this->createNotFoundException(
+                'No hymn found for id '.$id
+            );
+        }
+        $entityManager = $this->getDoctrine()->getManager();
+        $hymnToAdd = new RecentHymns2();
+        $currentDate = date('Y-m-d H:i:s');
+        $hymnNumber = $hymn->getNumber();
+        $hymnTitle = $hymn->getTitle();
+        $hymnVerses = $hymn->getVerses();
+        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $currentDate);
+        $popularity = 1;
+        $hymnToAdd->setNumber($hymnNumber);
+        $hymnToAdd->setTitle($hymnTitle);
+        $hymnToAdd->setVerses($hymnVerses);
+        $hymnToAdd->setPopularity($popularity);
+        $hymnToAdd->setAddedDate($date);
+
+
+        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+        $entityManager->persist($hymnToAdd);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
+
     }
     /**
      * @Route("/{id}/edit", name="hymns_edit", methods={"GET","POST"})

@@ -79,7 +79,7 @@
                         <tr>
                         {#<td>{{ hymn.id }}</td>#}
                         <td>{{ hymn.number }}</td>
-                        <td><a href="{{ path('hymns_show', {'number': hymn.number}) }}">{{ hymn.title }}</a></td>
+                        <td><a href="{{ path('hymns_show', {'id': hymn.id, 'number': hymn.number}) }}">{{ hymn.title }}</a></td>
                         {#<td>{{ hymn.verses }}</td>#}
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             {% if user.username=="144000giovanni@gmail.com" %}
