@@ -2,71 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42424c5e-c1d3-49c3-a486-a9e9c76fd4af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.tablesorter.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/today/today.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EgwController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EgwController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HymnsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HymnsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bible.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1mcp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/1sg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2bc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2sp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/2t.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4bc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/4t.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/5t.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/7bc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Aa.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ay.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Bc1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Chs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Col.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Col.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Cs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Csa.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ctr.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Devotional.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Egw/Devotional.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Education.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Exv.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Flb.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Gw.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hfm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Hvn.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Lhu.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mar.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Mc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/MigrationVersions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ml.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Myp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ohc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pcp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Pr.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Prophetsandkings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Rc.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/Ry.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Egw/ScheduleEgw.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/EgwRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SabbathController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SabbathController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserProfileController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/egw/chapterReadingEgw.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/egw/chapterReadingEgw.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/hymns/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hymns/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/hymns/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hymns/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recent_hymns2/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recent_hymns2/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sabbath/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sabbath/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sabbath/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sabbath/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/video/video.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/video/video.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,11 +27,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="199" column="92" selection-start-line="199" selection-start-column="92" selection-end-line="199" selection-end-column="92" />
+              <folding>
+                <element signature="e#6976#6986#0#Twig" expanded="true" />
+                <element signature="e#7102#7112#0#Twig" expanded="true" />
+                <element signature="e#8799#8817#0#Twig" expanded="true" />
+                <element signature="e#10124#10134#0#Twig" expanded="true" />
+                <element signature="e#10266#10276#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/hymn_show.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-705">
+              <caret line="124" column="1" selection-start-line="119" selection-end-line="124" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="1391">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
               <folding>
                 <element signature="e#34#62#0#PHP" expanded="true" />
               </folding>
@@ -92,79 +72,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
+        <entry file="file://$PROJECT_DIR$/templates/hymns/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/HymnsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-              <folding>
-                <element signature="e#2195#2217#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
-              <folding>
-                <element signature="e#1772#1783#0#Twig" expanded="true" />
-                <element signature="e#7632#7642#0#Twig" expanded="true" />
-                <element signature="e#7767#7777#0#Twig" expanded="true" />
-                <element signature="e#8296#8306#0#Twig" expanded="true" />
-                <element signature="e#9757#9775#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="29" column="38" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="29" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="12" selection-start-line="11" selection-end-line="12" />
+            <state relative-caret-position="420">
+              <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -173,8 +84,54 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/_form.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/templates/videos/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/HymnsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="99" selection-start-line="99" selection-end-line="99" />
+              <folding>
+                <element signature="e#34#55#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/RecentHymns2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="99" column="32" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/hymns/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
+              <folding>
+                <element signature="e#2940#2950#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -197,6 +154,7 @@
       <find>bookid</find>
       <find>holy</find>
       <find>videos</find>
+      <find>pagin</find>
     </findStrings>
     <replaceStrings>
       <replace>uploadVideoForm</replace>
@@ -210,13 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Form/VideoType.php" />
-        <option value="$PROJECT_DIR$/src/Controller/UploadVideoController.php" />
-        <option value="$PROJECT_DIR$/templates/video/videoUpload.html.twig" />
-        <option value="$PROJECT_DIR$/config/vich_uploader.yaml" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/config/knp_gaufrette" />
-        <option value="$PROJECT_DIR$/config/bundles.php" />
         <option value="$PROJECT_DIR$/src/Entity/Document.php" />
         <option value="$PROJECT_DIR$/src/Entity/Product.php" />
         <option value="$PROJECT_DIR$/config/vich_uploader" />
@@ -228,7 +179,6 @@
         <option value="$PROJECT_DIR$/public/documents/phpinfo.php" />
         <option value="$PROJECT_DIR$/templates/video/uploadVideo.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/VideoController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/SabbathController.php" />
         <option value="$PROJECT_DIR$/templates/sabbath/sabbath.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/templates/video/video.html.twig" />
@@ -253,13 +203,21 @@
         <option value="$PROJECT_DIR$/templates/books/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Books.php" />
         <option value="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/HymnsController.php" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/templates/hymns/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/recent_hymns2/_delete_form.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php" />
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/public/css/styles.css" />
+        <option value="$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/SabbathController.php" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/VideosController.php" />
+        <option value="$PROJECT_DIR$/templates/videos/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/UserProfileController.php" />
+        <option value="$PROJECT_DIR$/templates/hymns/show.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/UserProfile.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php" />
+        <option value="$PROJECT_DIR$/templates/hymns/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/HymnsController.php" />
         <option value="$PROJECT_DIR$/templates/recent_hymns2/index.html.twig" />
       </list>
     </option>
@@ -390,6 +348,8 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-gaufrette-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/gaufrette" />
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-time-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/extensions" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -413,24 +373,24 @@
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="documents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
@@ -459,38 +419,7 @@
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="egw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="egw" type="462c0819:PsiDirectoryNode" />
-              <item name="da" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="hymn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
@@ -509,6 +438,18 @@
               <item name="symfony" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="today" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="video" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="videos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="symfony" type="b2602c69:ProjectViewProjectNode" />
@@ -598,7 +539,10 @@
       <workItem from="1550235833208" duration="28578000" />
       <workItem from="1550345228958" duration="1711000" />
       <workItem from="1550353104804" duration="12114000" />
-      <workItem from="1550423520196" duration="23202000" />
+      <workItem from="1550423520196" duration="23971000" />
+      <workItem from="1550512504884" duration="8790000" />
+      <workItem from="1550595528793" duration="3610000" />
+      <workItem from="1550849959400" duration="10060000" />
     </task>
     <task id="LOCAL-00001" summary="added video site">
       <created>1549134065638</created>
@@ -625,7 +569,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334455000" />
+    <option name="totallyTimeSpent" value="357684000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,12 +584,12 @@
     <frame x="-1" y="28" width="1682" height="995" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2858017" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29681763" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.497552" weight="0.32756633" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49632803" weight="0.32756633" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -654,8 +598,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50611997" side_tool="true" visible="true" weight="0.20069204" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49388006" visible="true" weight="0.20069204" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50367194" side_tool="true" visible="true" weight="0.20069204" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49204406" weight="0.20069204" />
       <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49925596" weight="0.32871974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -682,81 +626,20 @@
           <line>4</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/VideoController.php</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/UserProfileController.php</url>
+          <line>33</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/sabbath/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Egw/EgwWritingsComplete.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Egw/EgwWritingsCompleteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/egw/searchResultsEgw.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="195" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hymns/_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hymns/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/egw/da/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Hymns.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-79" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/egw/da/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/egw/da/_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/egw/da/_delete_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -777,13 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BibleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="55" column="11" selection-start-line="55" selection-end-line="56" />
         </state>
       </provider>
     </entry>
@@ -914,52 +790,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hymn/showHymn.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/hymn/hymn.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
-          <folding>
-            <element signature="e#1750#1769#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hymns/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="14" lean-forward="true" selection-start-line="2" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#1949#1968#0#Twig" expanded="true" />
-            <element signature="e#2894#2904#0#Twig" expanded="true" />
-            <element signature="e#3080#3090#0#Twig" expanded="true" />
-            <element signature="e#3165#3175#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/_delete_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <element signature="e#37#57#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -970,57 +804,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/RecentHymns2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="12" selection-start-line="11" selection-end-line="12" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HymnsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-          <folding>
-            <element signature="e#2195#2217#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#34#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="29" column="38" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="29" selection-end-column="38" />
+        <state relative-caret-position="435">
+          <caret line="29" column="38" selection-start-line="26" selection-start-column="1" selection-end-line="29" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1031,26 +835,177 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/hymn/showHymn.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        <state relative-caret-position="150">
+          <caret line="10" column="8" selection-end-line="84" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/_delete_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SabbathController1.php">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SabbathController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sabbath/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/VideoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="174" column="39" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="39" />
+          <folding>
+            <element signature="e#156#189#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video/video.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="51" column="65" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="65" />
+          <folding>
+            <element signature="e#1750#1769#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/VideosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BibleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="48" column="5" selection-start-line="34" selection-start-column="1" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="e#157#203#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="e#157#203#0#PHP" expanded="true" />
+            <element signature="e#2534#2562#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-705">
+          <caret line="124" column="1" selection-start-line="119" selection-end-line="124" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/hymn_show.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/videos/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/hymns/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RecentHymns2Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1391">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="e#34#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HymnsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/hymns/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
+          <folding>
+            <element signature="e#2940#2950#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RecentHymns2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="99" column="32" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="32" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/recent_hymns2/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
+        <state relative-caret-position="345">
+          <caret line="199" column="92" selection-start-line="199" selection-start-column="92" selection-end-line="199" selection-end-column="92" />
           <folding>
-            <element signature="e#1772#1783#0#Twig" expanded="true" />
-            <element signature="e#7632#7642#0#Twig" expanded="true" />
-            <element signature="e#7767#7777#0#Twig" expanded="true" />
-            <element signature="e#8296#8306#0#Twig" expanded="true" />
-            <element signature="e#9757#9775#0#Twig" expanded="true" />
+            <element signature="e#6976#6986#0#Twig" expanded="true" />
+            <element signature="e#7102#7112#0#Twig" expanded="true" />
+            <element signature="e#8799#8817#0#Twig" expanded="true" />
+            <element signature="e#10124#10134#0#Twig" expanded="true" />
+            <element signature="e#10266#10276#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

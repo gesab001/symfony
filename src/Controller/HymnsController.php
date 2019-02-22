@@ -3,27 +3,51 @@
 namespace App\Controller;
 
 use App\Entity\Hymns;
+use App\Entity\Kjv;
+use App\Entity\RecentHymns2;
 use App\Form\HymnsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use App\Controller\UserProfile;
+use Symfony\Component\Security\Core\Security;
+use DateTimeInterface;
+use DateTime;
 /**
  * @Route("/hymns")
  */
 class HymnsController extends AbstractController
 {
+
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
+
+    public function getUserProfile()
+    {
+        // returns User object or null if not authenticated
+        $user = $this->security->getUser();
+        return $user;
+    }
+
     /**
      * @Route("/", name="hymns_index", methods={"GET"})
      */
     public function index(): Response
     {
+        $user = $this->getUserProfile();
         $hymns = $this->getDoctrine()
             ->getRepository(Hymns::class)
             ->findAll();
 
         return $this->render('hymns/index.html.twig', [
+            'user' => $user,
             'hymns' => $hymns,
         ]);
     }
@@ -52,20 +76,51 @@ class HymnsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="hymns_show", methods={"GET"})
+     * @Route("/{id}/{number}", name="hymns_show", methods={"GET"})
      */
-    public function show(Hymns $hymn): Response
+    public function show(Request $request)
     {
+        $id =  $request->get('id');
+        $number =  $request->get('number');
+        $this->updateHymn($id);
+        $entityManager = $this->getDoctrine()->getManager();
+        $hymn = $entityManager->getRepository(Hymns::class)->find($number);
+
+        if (!$hymn) {
+            throw $this->createNotFoundException(
+                'No hymn found for id '.$number
+            );
+        }
+        $user = $this->getUserProfile();
         return $this->render('hymns/show.html.twig', [
+            'user' => $user,
             'hymn' => $hymn,
         ]);
     }
 
+    public function updateHymn($id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $hymnToUpdate = $entityManager->getRepository(RecentHymns2::class)->find($id);
+
+        if (!$hymnToUpdate) {
+            throw $this->createNotFoundException(
+                'No hymn found for id '.$id
+            );
+        }
+
+        $currentDate = date('Y-m-d H:i:s');
+        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $currentDate);
+        $popularity = $hymnToUpdate->getPopularity() + 1;
+        $hymnToUpdate->setPopularity($popularity);
+        $hymnToUpdate->setAddedDate($date);
+        $entityManager->flush();
+    }
     /**
      * @Route("/{id}/edit", name="hymns_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Hymns $hymn): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(HymnsType::class, $hymn);
         $form->handleRequest($request);
 
@@ -78,6 +133,7 @@ class HymnsController extends AbstractController
         }
 
         return $this->render('hymns/edit.html.twig', [
+            'user' => $user,
             'hymn' => $hymn,
             'form' => $form->createView(),
         ]);

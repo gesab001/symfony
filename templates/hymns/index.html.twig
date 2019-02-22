@@ -67,7 +67,11 @@
                         <th>Number</th>
                         <th>Title</th>
                         {#<th>Verses</th>#}
-                        <th>actions</th>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            {% if user.username=="144000giovanni@gmail.com" %}
+                                <th>actions</th>
+                            {% endif %}
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody>
@@ -75,12 +79,16 @@
                         <tr>
                         {#<td>{{ hymn.id }}</td>#}
                         <td>{{ hymn.number }}</td>
-                        <td><a href="{{ path('hymns_show', {'id': hymn.id}) }}">{{ hymn.title }}</a></td>
+                        <td><a href="{{ path('hymns_show', {'number': hymn.number}) }}">{{ hymn.title }}</a></td>
                         {#<td>{{ hymn.verses }}</td>#}
-                        <td>
-                        <a href="{{ path('hymns_show', {'id': hymn.id}) }}">show</a>
-                        <a href="{{ path('hymns_edit', {'id': hymn.id}) }}">edit</a>
-                        </td>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            {% if user.username=="144000giovanni@gmail.com" %}
+                                <td>
+                                    {#<a href="{{ path('hymns_show', {'id': hymn.id}) }}">show</a>#}
+                                    <a href="{{ path('hymns_edit', {'id': hymn.id}) }}">edit</a>
+                                </td>
+                            {% endif %}
+                            {% endif %}
                         </tr>
                         {% else %}
                         <tr>

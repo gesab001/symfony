@@ -44,7 +44,7 @@ class SabbathController extends AbstractController
     }
 
     /**
-     * @Route("/blogView", name="sabbath_blog_view")
+     * @Route("/stories", name="sabbath_stories")
      */
 //    public function getTitles()
 //    {

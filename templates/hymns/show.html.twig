@@ -1,34 +1,141 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hymns{% endblock %}
 
-{% block body %}
-    <h1>Hymns</h1>
+        {% block body %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="show-article-container p-3 mt-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img class="show-article-img" src="https://kcm-www.s3.amazonaws.com/production/s3fs-public/7_types_of_praise_worship-_a_bible_study_2122875.jpg">
+                                    <div class="show-article-title-container d-inline-block pl-3 align-middle">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ hymn.id }}</td>
-            </tr>
-            <tr>
-                <th>Number</th>
-                <td>{{ hymn.number }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ hymn.title }}</td>
-            </tr>
-            <tr>
-                <th>Verses</th>
-                <td>{{ hymn.verses }}</td>
-            </tr>
-        </tbody>
-    </table>
+                                        <br>
+                                        {#<span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>#}
+                                        {#<span class="pl-2 article-details"> 3 hours ago</span>#}
+                                        {#<span class="pl-2 article-details">#}
+                                        {#<span class="js-like-article-count">5</span>#}
+                                        {#<a href="{{ path('article_toggle_heart', {slug: slug}) }}" class="fa fa-heart-o like-article js-like-article"></a> </span>#}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="article-text">
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                            {% if user.username=="144000giovanni@gmail.com" %}
+                                                <p><a href="{{ path('hymns_edit', {'id': hymn.id}) }}"> edit</a></p>
+                                            {% endif %}
+                                        {% endif %}
+                                        <p class="show-article-title ">{{ hymn.number }}. {{ hymn.title }}</p>
 
-    <a href="{{ path('hymns_index') }}">back to list</a>
+                                        {% set lines = hymn.verses |split('Verse') %}
+                                        {% for line in lines|slice(1) %}
+                                            {% set counter = ( counter | default(0) ) + 1 %}
+                                            {% if 'Refrain' in line  %}
+                                                    {% set refrain = line|split('Refrain') %}
+                                                    {#{% for chorus in refrain %}#}
+                                                <p style="font-weight: bold ">Verse {{ counter }}</p>
+                                                {% set verselength = refrain[0]|length%}
+                                                {% set verse = refrain[0]|slice(2,verselength)%}
+                                                    <p>{{ verse }}</p>
 
-    <a href="{{ path('hymns_edit', {'id': hymn.id}) }}">edit</a>
+                                                <p style="font-weight: bold ">Refrain </p>
+                                                <p>    {{ refrain[1] }}</p>
+                                                    {#{% endfor %}#}
+                                            {% else %}
+                                                    {% set verselength = line|length%}
+                                                    {% set verse = line|slice(2,verselength)%}
+                                                    <p style="font-weight: bold ">Verse {{ counter }} </p>
+                                                    <p>    {{ verse }}</p>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {#<p class="share-icons mb-5"><span class="pr-1">Share:</span> <i class="pr-1 fa fa-facebook-square"></i><i class="pr-1 fa fa-twitter-square"></i><i class="pr-1 fa fa-reddit-square"></i><i class="pr-1 fa fa-share-alt-square"></i></p>#}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {#<h3><i class="pr-3 fa fa-comment"></i>{{ comments | length }}Comments</h3>#}
+                                    <hr>
 
-    {{ include('hymns/_delete_form.html.twig') }}
-{% endblock %}
+                                    <div class="row mb-5">
+                                        <div class="col-sm-12">
+                                            {#<img class="comment-img rounded-circle" src="{{ asset('images/astronaut-profile.png') }}">#}
+                                            {#<div class="comment-container d-inline-block pl-3 align-top">#}
+                                            {#<span class="commenter-name">Amy Oort</span>#}
+                                            {#<div class="form-group">#}
+                                            {#<textarea class="form-control comment-form" id="articleText" rows="1"></textarea>#}
+                                            {#</div>#}
+                                            {#<button type="submit" class="btn btn-info">Comment</button>#}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {#{% for comment in comments %}#}
+                                {#<div class="row">#}
+                                {#<div class="col-sm-12">#}
+                                {#<img class="comment-img rounded-circle" src="{{ asset('images/alien-profile.png') }}">#}
+                                {#<div class="comment-container d-inline-block pl-3 align-top">#}
+                                {#<span class="commenter-name">Mike Ferengi</span>#}
+                                {#<br>#}
+                                {#<span class="comment"> {{ comment }}</span>#}
+                                {#<p><a href="#">Reply</a></p>#}
+                                {#</div>#}
+                                {#</div>#}
+                                {#</div>#}
+                                {#{% endfor %}#}
+                                <p><a href="{{ path('recent_hymns2_index') }}">back to list </a></p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+            {#{{ include('hymns/_delete_form.html.twig') }}#}
+
+        {% endblock %}
+
+
+
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Hymns{% endblock %}#}
+
+{#{% block body %}#}
+    {#<h1>Hymns</h1>#}
+
+    {#<table class="table">#}
+        {#<tbody>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ hymn.id }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Number</th>#}
+                {#<td>{{ hymn.number }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Title</th>#}
+                {#<td>{{ hymn.title }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Verses</th>#}
+                {#<td>{{ hymn.verses }}</td>#}
+            {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
+
+
+{#{% endblock %}#}

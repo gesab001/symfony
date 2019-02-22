@@ -40,6 +40,29 @@ th, td {
 tr:nth-child(even) {
     background-color: #f2f2f2
 }
+
+.clickableCell{
+    color: blue;
+}
+
+@media (max-width: 440px) {
+    #myTableDesktopView {
+        display: none;
+    }
+    #myTableMobileView {
+        display: block;
+    }
+
+}
+@media (min-width: 440px) {
+    #myTableDesktopView {
+        display: block;
+    }
+    #myTableMobileView {
+        display: none;
+    }
+
+}
 </style>
 {% endblock %}
         {% block body %}
@@ -136,11 +159,11 @@ tr:nth-child(even) {
                         {#</table>#}
 
 
-                        <table id="myTable">
+                        <table id="myTableDesktopView">
                             <tr>
                                 <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->
                                 <th onclick="sortTablePopularity(0)">Number</th>
-                                <th onclick="sortTable(1)">Title</th>
+                                <th onclick="sortTableTitle(1)">Title</th>
                                 <th>Last viewed</th>
                                 <th id="popularity" onclick="sortTablePopularity(3)">Total views</th>
                                 {#<th>Id</th>#}
@@ -149,9 +172,9 @@ tr:nth-child(even) {
                             </tr>
 
                             {% for recent_hymns2 in recent_hymns2s %}
-                            <tr>
-                                <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.number }}</td>
-                                <td href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">{{ recent_hymns2.title }}</td>
+                            <tr class='clickable-row' data-href='{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}'>
+                                <td class="clickableCell"  href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.number }}</td>
+                                <td class="clickableCell" href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.title }}</td>
                                 {% set now = "now"|date("D j F Y g:ia") %}
 
                                 {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
@@ -174,14 +197,42 @@ tr:nth-child(even) {
                                 <td>{{ recent_hymns2.popularity }}</td>
                                 {#<td>{{ recent_hymns2.id }}</td>#}
                                 <td>
-                                    <a href="{{ path('hymns_show', {'id': recent_hymns2.id}) }}">show</a>
+                                    <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">show</a>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {% if user.username=="144000giovanni@gmail.com" %}
                                     <a href="{{ path('recent_hymns2_edit', {'id': recent_hymns2.id}) }}">edit</a>
-                                    {{ include('recent_hymns2/_delete_form.html.twig') }}
+                                        {{ include('recent_hymns2/_delete_form.html.twig') }}
+
+                                    {% endif %}
+                                    {% endif %}
 
                                 </td>
                             </tr>
                             {% endfor %}
                         </table>
+
+                        <div  id="myTableMobileView">
+                            <table>
+
+                                {% for recent_hymns2 in recent_hymns2s %}
+                                    <tr>
+                                        <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.number }}  </a>
+                                        <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.title }}</a>
+
+                                        {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
+
+                                        <br><a>Last viewed: {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|ago : ''}}</a>
+                                        <br><a>Total views: {{ recent_hymns2.popularity }}</a>
+                                        <br>
+                                        <br>
+                                    </tr>
+
+
+                                {% endfor %}
+                            </table>
+
+                        </div>
+
                     </div>
 
                     <!-- Right bar ad space -->
@@ -297,7 +348,7 @@ tr:nth-child(even) {
     </script>
 
     <script>
-        function sortTable(n) {
+        function sortTableTitle(n) {
             var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
             table = document.getElementById("myTable");
             switching = true;
@@ -353,6 +404,13 @@ tr:nth-child(even) {
         }
     </script>
 
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
 {%  endblock %}
 
 

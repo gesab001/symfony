@@ -8,23 +8,43 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/recent/hymns2")
  */
 class RecentHymns2Controller extends AbstractController
 {
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
+
+    public function getUserProfile()
+    {
+        // returns User object or null if not authenticated
+        $user = $this->security->getUser();
+        return $user;
+    }
+
     /**
      * @Route("/", name="recent_hymns2_index", methods={"GET"})
      */
     public function index(): Response
     {
+        $user = $this->getUserProfile();
+
 
         $recentHymns2s = $this->getDoctrine()
             ->getRepository(RecentHymns2::class)
             ->findBy(array(), array('addedDate'=> 'DESC'));
 
         return $this->render('recent_hymns2/index.html.twig', [
+            'user' => $user,
             'recent_hymns2s' => $recentHymns2s,
         ]);
     }
@@ -83,6 +103,7 @@ class RecentHymns2Controller extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 
     /**
      * @Route("/{id}", name="recent_hymns2_delete", methods={"DELETE"})
