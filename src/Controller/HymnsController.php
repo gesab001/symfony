@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Hymns;
 use App\Entity\Kjv;
+use App\Entity\RecentHymns;
 use App\Entity\RecentHymns2;
 use App\Form\HymnsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -80,11 +81,12 @@ class HymnsController extends AbstractController
      */
     public function show(Request $request)
     {
-        $id =  $request->get('id');
+        $hymns_id =  $request->get('id');
         $number =  $request->get('number');
-        $this->updateHymn($id, $number);
+        $id = $number;
+        $this->updateHymn($number);
         $entityManager = $this->getDoctrine()->getManager();
-        $hymn = $entityManager->getRepository(Hymns::class)->find($number);
+        $hymn = $entityManager->getRepository(Hymns::class)->find($id);
 
         if (!$hymn) {
             throw $this->createNotFoundException(
@@ -98,31 +100,31 @@ class HymnsController extends AbstractController
         ]);
     }
 
-    public function updateHymn($id, $number){
-        $entityManager = $this->getDoctrine()->getManager();
-        $hymnToUpdate = $entityManager->getRepository(RecentHymns2::class)->find($id);
-
-        if (!$hymnToUpdate) {
+    public function updateHymn($number){
+        $repository = $this->getDoctrine()->getRepository(RecentHymns2::class);
+        $recent_hymn = $repository->findOneBy(['number' => $number]);
+        if (!$recent_hymn) {
 //            throw $this->createNotFoundException(
 //                'No hymn found for number '.$number
 //
 //            );
             $this->addRecentHymn($number);
         }
+        else{
+            $entityManager = $this->getDoctrine()->getManager();
+            $currentDate = date('Y-m-d H:i:s');
+            $date = \DateTime::createFromFormat('Y-m-d H:i:s', $currentDate);
+            $popularity = $recent_hymn->getPopularity() + 1;
+            $recent_hymn->setPopularity($popularity);
+            $recent_hymn->setAddedDate($date);
+            $entityManager->flush();
+        }
 
-        $currentDate = date('Y-m-d H:i:s');
-        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $currentDate);
-        $popularity = $hymnToUpdate->getPopularity() + 1;
-        $hymnToUpdate->setPopularity($popularity);
-        $hymnToUpdate->setAddedDate($date);
-        $entityManager->flush();
     }
 
     public function addRecentHymn($id){
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $hymn = $entityManager->getRepository(Hymns::class)->find($id);
-
+        $repository = $this->getDoctrine()->getRepository(Hymns::class);
+        $hymn = $repository->findOneBy(['id' => $id]);
         if (!$hymn) {
             throw $this->createNotFoundException(
                 'No hymn found for id '.$id
@@ -137,6 +139,7 @@ class HymnsController extends AbstractController
         $date = \DateTime::createFromFormat('Y-m-d H:i:s', $currentDate);
         $popularity = 1;
         $hymnToAdd->setNumber($hymnNumber);
+
         $hymnToAdd->setTitle($hymnTitle);
         $hymnToAdd->setVerses($hymnVerses);
         $hymnToAdd->setPopularity($popularity);
