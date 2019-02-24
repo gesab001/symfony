@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Books index{% endblock %}
+
+{% block body %}
+    <h1>Books index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bookcode</th>
+                <th>Booktitle</th>
+                <th>CreationDate</th>
+                <th>Totalparagraphs</th>
+                <th>Display_status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.bookcode }}</td>
+                <td>{{ book.booktitle }}</td>
+                <td>{{ book.creationDate ? book.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ book.totalparagraphs }}</td>
+                <td>{{ book.displayStatus }}</td>
+                <td>
+                    <a href="{{ path('egw_books_show', {'bookcode': book.bookcode}) }}">show</a>
+                    <a href="{{ path('egw_books_edit', {'bookcode': book.bookcode}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('egw_books_new') }}">Create new</a>
+{% endblock %}

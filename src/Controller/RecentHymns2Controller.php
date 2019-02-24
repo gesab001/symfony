@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Flowers;
 use App\Entity\RecentHymns2;
 use App\Form\RecentHymns2Type;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,11 +32,27 @@ class RecentHymns2Controller extends AbstractController
         return $user;
     }
 
+    public function getImage()
+    {
+        $randomNumber = rand(1, 69);
+        $id = $randomNumber;
+        $entityManager = $this->getDoctrine()->getManager();
+        $flower = $entityManager->getRepository(Flowers::class)->find($id);
+
+        if (!$flower) {
+            throw $this->createNotFoundException(
+                'No flower found for number ' . $flower
+            );
+        }
+        return $flower;
+    }
+
     /**
      * @Route("/", name="recent_hymns2_index", methods={"GET"})
      */
     public function index(): Response
     {
+        $flower = $this->getImage();
         $user = $this->getUserProfile();
 
 
@@ -46,6 +63,7 @@ class RecentHymns2Controller extends AbstractController
         return $this->render('recent_hymns2/index.html.twig', [
             'user' => $user,
             'recent_hymns2s' => $recentHymns2s,
+            'flower' => $flower
         ]);
     }
 

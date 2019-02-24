@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flowers{% endblock %}
+
+{% block body %}
+    {#<h1>Flowers</h1>#}
+
+    {#<table class="table">#}
+        {#<tbody>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ flower.id }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Filename</th>#}
+                <img style="width:100%; height:100%" src="https://s3-ap-southeast-2.amazonaws.com/144000-photos/{{ flower.filename }}" alt="flower" border=3 height=100 width=100</img>
+            {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
+
+    <a href="{{ path('flowers_index') }}">back to list</a>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% if user.username=="144000giovanni@gmail.com" %}
+            <p><a href="{{ path('flowers_edit', {'id': flower.id}) }}">edit</a></p>
+            {{ include('flowers/_delete_form.html.twig') }}
+        {% endif %}
+    {% endif %}
+
+
+
+{% endblock %}

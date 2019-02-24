@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flowers index{% endblock %}
+
+{% block body %}
+    <h1>Flowers index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Filename</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for flower in flowers %}
+            <tr>
+                <td>{{ flower.id }}</td>
+                <td><img src="https://s3-ap-southeast-2.amazonaws.com/144000-photos/{{ flower.filename }}" alt="flower" border=3 height=100 width=100</img></td>
+                <td>
+                    <a href="{{ path('flowers_show', {'id': flower.id}) }}">show</a>
+                    <a href="{{ path('flowers_edit', {'id': flower.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('flowers_new') }}">Create new</a>
+{% endblock %}

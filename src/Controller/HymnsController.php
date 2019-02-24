@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Flowers;
 use App\Entity\Hymns;
 use App\Entity\Kjv;
 use App\Entity\RecentHymns;
@@ -42,6 +43,7 @@ class HymnsController extends AbstractController
      */
     public function index(): Response
     {
+        $flower = $this->getImage();
         $user = $this->getUserProfile();
         $hymns = $this->getDoctrine()
             ->getRepository(Hymns::class)
@@ -50,6 +52,7 @@ class HymnsController extends AbstractController
         return $this->render('hymns/index.html.twig', [
             'user' => $user,
             'hymns' => $hymns,
+            'flower'=> $flower
         ]);
     }
 
@@ -76,11 +79,25 @@ class HymnsController extends AbstractController
         ]);
     }
 
+    public function getImage(){
+        $randomNumber = rand(1,69);
+        $id = $randomNumber;
+        $entityManager = $this->getDoctrine()->getManager();
+        $flower = $entityManager->getRepository(Flowers::class)->find($id);
+
+        if (!$flower) {
+            throw $this->createNotFoundException(
+                'No flower found for number '.$flower
+            );
+        }
+        return $flower;
+    }
     /**
      * @Route("/{id}/{number}", name="hymns_show", methods={"GET"})
      */
     public function show(Request $request)
     {
+        $flower = $this->getImage();
         $hymns_id =  $request->get('id');
         $number =  $request->get('number');
         $id = $number;
@@ -97,10 +114,12 @@ class HymnsController extends AbstractController
         return $this->render('hymns/show.html.twig', [
             'user' => $user,
             'hymn' => $hymn,
+            'flower' => $flower
         ]);
     }
 
     public function updateHymn($number){
+        date_default_timezone_set('Pacific/Auckland');
         $repository = $this->getDoctrine()->getRepository(RecentHymns2::class);
         $recent_hymn = $repository->findOneBy(['number' => $number]);
         if (!$recent_hymn) {
@@ -112,7 +131,7 @@ class HymnsController extends AbstractController
         }
         else{
             $entityManager = $this->getDoctrine()->getManager();
-            $currentDate = date('Y-m-d H:i:s');
+            $currentDate = date('Y-m-d H:i:s', strtotime("-25 hours"));
             $date = \DateTime::createFromFormat('Y-m-d H:i:s', $currentDate);
             $popularity = $recent_hymn->getPopularity() + 1;
             $recent_hymn->setPopularity($popularity);

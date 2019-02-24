@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Flowers{% endblock %}
+
+{% block body %}
+    <h1>Edit Flowers</h1>
+
+    {{ include('flowers/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('flowers_index') }}">back to list</a>
+
+    {{ include('flowers/_delete_form.html.twig') }}
+{% endblock %}

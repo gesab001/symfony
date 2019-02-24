@@ -43,6 +43,11 @@ class DaController extends AbstractController
         }
         return $id;
     }
+
+    public function getTotalParagraphs($book){
+        $book = 'DA';
+
+    }
     /**
      * @Route("/new", name="egw_da_new", methods={"GET","POST"})
      */
