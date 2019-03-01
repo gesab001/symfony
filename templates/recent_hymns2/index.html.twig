@@ -211,27 +211,31 @@ tr:nth-child(even) {
                             {% endfor %}
                         </table>
 
-                        <div  id="myTableMobileView">
-                            <table>
+                        {#<div  id="myTableMobileView">#}
+                            <table id="myTableMobileView">
 
                                 {% for recent_hymns2 in recent_hymns2s %}
                                     <tr>
-                                        <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.number }}  </a>
-                                        <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.title }}</a>
+                                        <td>
+                                            <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.number }}  </a>
+                                            <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.title }}</a>
 
-                                        {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
+                                            {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
 
-                                        <br><a>Last viewed: {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|ago : ''}}</a>
-                                        <br><a>Total views: {{ recent_hymns2.popularity }}</a>
-                                        <br>
-                                        <br>
+                                            <br><a>Last viewed: {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|ago : ''}}</a>
+                                            <br><a>Total views: {{ recent_hymns2.popularity }}</a>
+                                            <br>
+                                            <br>
+
+                                        </td>
+
                                     </tr>
 
 
                                 {% endfor %}
                             </table>
 
-                        </div>
+                        {#</div>#}
 
                     </div>
 

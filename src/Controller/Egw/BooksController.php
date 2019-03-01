@@ -8,6 +8,7 @@ use App\Entity\Kjv;
 use App\Form\Egw\BooksType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -166,5 +167,16 @@ class BooksController extends Controller
         }
 
         return $this->redirectToRoute('egw_books_index');
+    }
+
+    /**
+     * @Route("/status_display/change/", name="change_display_status_egw", methods={"POST"})
+     */
+    public function toggleDisplayStatus(Request $request){
+
+        
+        return new Response("hello");
+
+
     }
 }
