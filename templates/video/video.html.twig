@@ -19,6 +19,13 @@
                                         </a>
                                         <div class="navigation">
                                                 {{ knp_pagination_render(videos) }}
+                                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                        {% if user.username=="144000giovanni@gmail.com" %}
+                                                                <a href="{{ path('upload_video') }}">Upload video</a>
+
+                                                        {% endif %}
+                                                {% endif %}
+
                                         </div>
                                         <!-- Supporting Articles -->
 

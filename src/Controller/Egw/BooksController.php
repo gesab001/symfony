@@ -2,8 +2,10 @@
 
 namespace App\Controller\Egw;
 
+use App\Entity\Egw\Bcn;
 use App\Entity\Egw\Books;
 use App\Entity\Egw\EgwWritingsComplete;
+use App\Entity\Egw\ScheduleEgw;
 use App\Entity\Kjv;
 use App\Form\Egw\BooksType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +21,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class BooksController extends Controller
 {
 
-    function getCurrentID($totalParagraphs){
+    function getCurrentID($totalParagraphs, $bookcode){
+        $startingDate = $this->getStartingDate($bookcode);
         $totalVerses = $totalParagraphs;
         date_default_timezone_set("Pacific/Auckland");
-        $originalDate = strtotime("2016-12-31 14:45:00");
+        $originalDate = strtotime($startingDate);
         $dateToday = date("Y-m-d H:i");
         $currentDate = strtotime("now");
         $difference_in_minutes = round(($currentDate-$originalDate)/60/60/24)+1;
@@ -47,6 +50,26 @@ class BooksController extends Controller
         ]);
     }
 
+    public function getStartingDate($bookcode){
+        $em = $this->getDoctrine()->getManager('egw');
+
+        // Get some repository of data, in our case we have an Appointments entity
+        $hymnsRepository = $em->getRepository(ScheduleEgw::class);
+
+        // Find all the data on the Appointments table, filter your query as you need
+        $allHymnsQuery = $hymnsRepository->createQueryBuilder('w')
+            ->where('w.bookcode = :bookcode')
+//            ->andWhere('w.id > :id')
+            ->setParameter('bookcode', $bookcode)
+            ->getQuery();
+
+        // to get just one result:
+        $result = $allHymnsQuery->setMaxResults(1)->getOneOrNullResult();
+        $startingDate = $result->getDate();
+        $formatedDate = $startingDate->format("Y-m-d H:i");
+//        print_r($formatedDate);
+        return $formatedDate;
+    }
     public function getStartingID($bookcode){
 
         $em = $this->getDoctrine()->getManager('egw');
@@ -76,8 +99,24 @@ class BooksController extends Controller
 //        $userprofile = new UserController();
 //        $user = $this->getUserProfile();
         $totalParagraphs = count($products);
-        $currentID = $this->getCurrentID($totalParagraphs) + $startingID - 1;
+        $currentID = $this->getCurrentID($totalParagraphs, $bookcode) + $startingID - 1;
         $currentParagraph = $repository->find($currentID);
+        return $currentParagraph;
+    }
+
+    public function getSpecialTopics(){
+        $repository = $this->getDoctrine()->getRepository(Bcn::class, 'egw');
+        $products = $repository->findAll();
+
+//        $userprofile = new UserController();
+//        $user = $this->getUserProfile();
+        $totalParagraphs = count($products);
+//        print_r($totalParagraphs);
+        $currentID = $this->getCurrentID($totalParagraphs, "BCN");
+//        print_r($currentID);
+        $currentParagraph = $repository->find($currentID);
+//        print_r($currentParagraph);
+//        print_r($currentParagraph);
         return $currentParagraph;
     }
     /**
@@ -88,6 +127,8 @@ class BooksController extends Controller
         $paragraphs = array();
 
         $codeslist = array('DA', 'CD', 'CG', '1MCP', '2MCP', 'PP', 'PK', 'AA', 'MH', 'GC');
+        $birthdayParagraph = $this->getSpecialTopics();
+        array_push($paragraphs, $birthdayParagraph);
         foreach ($codeslist as $bookcodes){
             $startingID = $this->getStartingID($bookcodes);
             $currentParagraph = $this->getParagraph($bookcodes, $startingID);

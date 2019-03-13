@@ -95,7 +95,7 @@ tr:nth-child(even) {
 
 
 
-                            <label>Quick Search: <input id="search" type="text"></label>
+                            <label>Quick Search Recently Viewed Hymns : <input id="search" type="text"></label>
                             <div>
                                 <span><button class="button3" onclick="location.href = {{ path('hymns_index') }};"  >View all</button></span>
                                 {#<span><button class="button3" onclick="location.href={{ path('hymns_new') }}">Create new hymn</button></span>#}
@@ -177,10 +177,10 @@ tr:nth-child(even) {
                                 <td class="clickableCell" href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.title }}</td>
                                 {% set now = "now"|date("D j F Y g:ia") %}
 
-                                {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
+                                {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+25 hours")|date("D j F Y g:ia") %}
                                 {% set difference = date(now).diff(date(lastViewed)) %}
                                 {% set leftDays = difference.days %}
-                                <td>{{ lastViewed }}, {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|ago : ''}}</td>
+                                <td>{{ lastViewed }}, {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+12 hours")|ago : ''}}</td>
                                 {#{% if leftDays == 1 %}#}
                                     {#<td>{{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date("D j F Y \\a\\t g:ia") : '' }}, 1 day ago</td>#}
                                 {#{% elseif leftDays == 7 %}#}
@@ -220,9 +220,9 @@ tr:nth-child(even) {
                                             <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.number }}  </a>
                                             <a href="{{ path('hymns_show', {'id': recent_hymns2.id, 'number': recent_hymns2.number}) }}">{{ recent_hymns2.title }}</a>
 
-                                            {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|date("D j F Y g:ia") %}
+                                            {% set lastViewed = recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+25 hours")|date("D j F Y g:ia") %}
 
-                                            <br><a>Last viewed: {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+13 hours")|ago : ''}}</a>
+                                            <br><a>Last viewed: {{ recent_hymns2.addedDate ? recent_hymns2.addedDate|date_modify("+12 hours")|ago : ''}}</a>
                                             <br><a>Total views: {{ recent_hymns2.popularity }}</a>
                                             <br>
                                             <br>
